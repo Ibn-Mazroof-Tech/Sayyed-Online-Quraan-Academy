@@ -393,39 +393,34 @@
         }
 
         
-async function playReflectionAudio() {
-  if (!currentReflectionText) return;
-
-  const btn = document.getElementById("ttsBtn");
-  const original = btn.innerHTML;
-  btn.innerHTML = "🔊 Loading...";
-
-  try {
-    const res = await fetch("/api/gemini", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        prompt: currentReflectionText,
-        tts: true
-      })
-    });
-
-    const data = await res.json();
-
-    if (!data.audio) {
-      alert("Audio not generated");
-      return;
-    }
-
-    const audio = new Audio("data:audio/wav;base64," + data.audio);
-    await audio.play();
-  } catch (err) {
-    console.error(err);
-    alert("Audio failed");
-  } finally {
-    btn.innerHTML = original;
+function playReflectionAudio() {
+  if (!currentReflectionText) {
+    alert("Generate reflection first");
+    return;
   }
+
+  // Stop any previous speech
+  speechSynthesis.cancel();
+
+  const speech = new SpeechSynthesisUtterance(currentReflectionText);
+
+  // Voice settings
+  speech.lang = "en-US";     // English voice
+  speech.rate = 0.95;        // Speed (0.5 slow → 1 normal → 1.2 fast)
+  speech.pitch = 1;          // Tone
+  speech.volume = 1;         // Volume
+
+  // Try to select best voice automatically
+  const voices = speechSynthesis.getVoices();
+  const preferred =
+    voices.find(v => v.name.includes("Google") && v.lang.includes("en")) ||
+    voices.find(v => v.lang.includes("en"));
+
+  if (preferred) speech.voice = preferred;
+
+  speechSynthesis.speak(speech);
 }
+
 
 
 
