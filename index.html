@@ -313,16 +313,24 @@
 
     <script>
         // --- GEMINI API CONFIG ---
-        const apiKey = ""; // Runtime provided
+        const apiKey = null; // Runtime provided
         const TEXT_MODEL = "gemini-2.5-flash-preview-09-2025";
         const TTS_MODEL = "gemini-2.5-flash-preview-tts";
 
         async function callGemini(prompt, systemInstruction = "") {
-            const url = `https://generativelanguage.googleapis.com/v1beta/models/${TEXT_MODEL}:generateContent?key=${apiKey}`;
-            const payload = {
-                contents: [{ parts: [{ text: prompt }] }],
-                systemInstruction: { parts: [{ text: systemInstruction }] }
-            };
+          const res = await fetch("/api/gemini", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              prompt: prompt,
+              system: systemInstruction
+            })
+          });
+        
+          const data = await res.json();
+          return data.text;
+        }
+
 
             for (let i = 0; i < 5; i++) {
                 try {
