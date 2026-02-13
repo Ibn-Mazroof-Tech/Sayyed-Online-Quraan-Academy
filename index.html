@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAYYED ONLINE QUR'AAN ACADEMY</title>
+    <!-- Tailwind CSS CDN for utility styles -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Inter:wght@300;400;600;700&display=swap');
+
+        :root {
+            --islamic-green: #064e3b;
+            --gold: #d4af37;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .arabic-font {
+            font-family: 'Amiri', serif;
+        }
+
+        .hero-slide {
+            display: none;
+            animation: fadeImg 1s ease-in-out;
+        }
+
+        .hero-slide.active {
+            display: block;
+        }
+
+        @keyframes fadeImg {
+            from { opacity: 0.4; }
+            to { opacity: 1; }
+        }
+
+        .course-card:hover {
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+        }
+
+        .view-transition {
+            animation: slideUp 0.5s ease-out;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Loading Spinner */
+        .spinner {
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top: 3px solid #fff;
+            width: 20px;
+            height: 20px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Chat Window Shadow */
+        .chat-shadow {
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Header Navigation -->
+    <header class="bg-[#064e3b] text-white sticky top-0 z-50 shadow-lg">
+        <div class="container mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center">
+            <div class="flex items-center space-x-3 cursor-pointer" onclick="showView('home')">
+                <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center">
+                    <i class="fa-solid fa-mosque text-[#064e3b] text-2xl"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl font-bold tracking-tight">SAYYED ONLINE</h1>
+                    <p class="text-xs text-yellow-400 font-semibold uppercase tracking-widest leading-tight">Qur'aan Academy</p>
+                </div>
+            </div>
+            <nav class="mt-4 md:mt-0">
+                <ul class="flex space-x-6 font-medium">
+                    <li><a href="javascript:void(0)" onclick="showView('home')" class="hover:text-yellow-400 transition">Home</a></li>
+                    <li><a href="#courses-section" onclick="showView('home')" class="hover:text-yellow-400 transition">Courses</a></li>
+                    <li><a href="#reflection-section" onclick="showView('home')" class="hover:text-yellow-400 transition">Reflection</a></li>
+                    <li><a href="#footer" class="hover:text-yellow-400 transition">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content Wrapper -->
+    <main id="main-content">
+        
+        <!-- HOME VIEW -->
+        <div id="home-view" class="view-transition">
+            <!-- Hero Banner Slider -->
+            <section class="relative h-[400px] md:h-[500px] overflow-hidden">
+                <!-- Slide 1: Quran Study -->
+                <div class="hero-slide active h-full relative">
+                    <img src="https://images.unsplash.com/photo-1585036156171-384164a8c675?auto=format&fit=crop&q=80&w=1600" alt="Quran Study" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-black/50 flex items-center justify-center">
+                        <div class="text-center px-4">
+                            <h2 class="text-4xl md:text-6xl text-white font-bold mb-4">Sacred Knowledge for Every Heart</h2>
+                            <p class="text-xl text-yellow-200 mb-8 italic">Authentic curricula taught by qualified scholars.</p>
+                            <button onclick="scrollToElement('courses-section')" class="bg-[#d4af37] text-white px-8 py-3 rounded-full font-bold hover:bg-yellow-600 transition shadow-lg">Explore Courses</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slide 2: Islamic Literature -->
+                <div class="hero-slide h-full relative">
+                    <img src="https://images.unsplash.com/photo-1516979187457-637abb4f9353?auto=format&fit=crop&q=80&w=1600" alt="Islamic Literature" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-black/50 flex items-center justify-center">
+                        <div class="text-center px-4">
+                            <h2 class="text-4xl md:text-6xl text-white font-bold mb-4 uppercase tracking-wider">Islamic Literature</h2>
+                            <p class="text-xl text-yellow-200 mb-8 italic">Preserving the Scholarly Heritage through classical texts.</p>
+                            <button onclick="scrollToElement('courses-section')" class="bg-[#d4af37] text-white px-8 py-3 rounded-full font-bold hover:bg-yellow-600 transition shadow-lg">View Programs</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slide 3: Global Education -->
+                <div class="hero-slide h-full relative">
+                    <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&q=80&w=1600" alt="Global Education" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-black/50 flex items-center justify-center">
+                        <div class="text-center px-4">
+                            <h2 class="text-4xl md:text-6xl text-white font-bold mb-4">A Global Community</h2>
+                            <p class="text-xl text-yellow-200 mb-8 italic">Connecting seekers of truth from all over the world.</p>
+                            <button onclick="scrollToElement('courses-section')" class="bg-[#d4af37] text-white px-8 py-3 rounded-full font-bold hover:bg-yellow-600 transition shadow-lg">Our Alumni</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ✨ AI COURSE ADVISOR -->
+            <section class="bg-[#064e3b] text-white py-12">
+                <div class="container mx-auto px-4 text-center">
+                    <h3 class="text-2xl font-bold mb-4">Not sure which course is right for you?</h3>
+                    <p class="mb-8 opacity-90">Describe your background and goals, and our ✨ AI Advisor will recommend the perfect path.</p>
+                    <div class="max-w-2xl mx-auto flex flex-col md:flex-row gap-4">
+                        <input id="advisorInput" type="text" placeholder="e.g., 'I am a beginner who wants to understand the meaning of Salah better.'" 
+                               class="flex-grow p-4 rounded-xl text-gray-900 border-none outline-none">
+                        <button onclick="getAIRecommendation()" class="bg-yellow-500 hover:bg-yellow-400 text-gray-900 font-bold py-4 px-8 rounded-xl transition flex items-center justify-center gap-2">
+                            <span id="advisorBtnText">✨ Recommend Path</span>
+                            <div id="advisorSpinner" class="spinner hidden"></div>
+                        </button>
+                    </div>
+                    <div id="advisorResult" class="mt-8 p-6 bg-white/10 rounded-2xl hidden text-left border border-white/20">
+                        <h4 class="font-bold text-yellow-400 mb-2">Our Recommendation:</h4>
+                        <div id="advisorText" class="text-lg leading-relaxed"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Courses Section -->
+            <section id="courses-section" class="py-20 container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-[#064e3b] mb-4">Our Programs</h2>
+                    <div class="w-24 h-1 bg-yellow-500 mx-auto rounded-full"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div onclick="openCourse('aalim')" class="course-card bg-white rounded-2xl overflow-hidden shadow-md cursor-pointer p-6 flex flex-col items-center text-center">
+                        <div class="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mb-4 text-[#064e3b] text-2xl">
+                            <i class="fa-solid fa-book-open"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">'Aalim / 'Aalimah</h3>
+                        <p class="text-gray-500 text-sm">Sacred Scholarship in Theology and Law.</p>
+                    </div>
+                    <div onclick="openCourse('faazil')" class="course-card bg-white rounded-2xl overflow-hidden shadow-md cursor-pointer p-6 flex flex-col items-center text-center">
+                        <div class="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mb-4 text-amber-700 text-2xl">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Faazil / Faazilah</h3>
+                        <p class="text-gray-500 text-sm">Advanced Specialization and Research.</p>
+                    </div>
+                    <div onclick="openCourse('history')" class="course-card bg-white rounded-2xl overflow-hidden shadow-md cursor-pointer p-6 flex flex-col items-center text-center">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4 text-blue-700 text-2xl">
+                            <i class="fa-solid fa-landmark"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Islamic History</h3>
+                        <p class="text-gray-500 text-sm">The Legacy of Prophets and Civilization.</p>
+                    </div>
+                    <div onclick="openCourse('arabic')" class="course-card bg-white rounded-2xl overflow-hidden shadow-md cursor-pointer p-6 flex flex-col items-center text-center">
+                        <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mb-4 text-red-700 text-2xl">
+                            <i class="fa-solid fa-language"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Arabic Language</h3>
+                        <p class="text-gray-500 text-sm">Mastering the Language of Revelation.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ✨ SPIRITUAL REFLECTION SECTION -->
+            <section id="reflection-section" class="py-20 bg-gray-100">
+                <div class="container mx-auto px-4">
+                    <div class="max-w-4xl mx-auto bg-white rounded-3xl shadow-xl overflow-hidden flex flex-col md:flex-row border-4 border-[#064e3b]">
+                        <div class="md:w-1/3 bg-[#064e3b] p-8 text-white flex flex-col justify-center items-center text-center">
+                            <i class="fa-solid fa-star-and-crescent text-6xl text-yellow-400 mb-6"></i>
+                            <h3 class="text-2xl font-bold">Daily Insight</h3>
+                            <p class="mt-4 text-sm opacity-80 italic">Fresh wisdom generated daily by our ✨ AI educator.</p>
+                        </div>
+                        <div class="md:w-2/3 p-8 flex flex-col justify-between">
+                            <div id="reflectionContent">
+                                <p class="text-gray-400 italic">Click the button below to generate today's spiritual reflection...</p>
+                            </div>
+                            <div class="mt-8 flex flex-wrap gap-4">
+                                <button onclick="generateReflection()" class="bg-[#064e3b] text-white py-3 px-6 rounded-xl font-bold hover:bg-emerald-800 transition flex items-center gap-2">
+                                    <span id="reflectBtnText">✨ Get Reflection</span>
+                                    <div id="reflectSpinner" class="spinner hidden"></div>
+                                </button>
+                                <button id="ttsBtn" onclick="playReflectionAudio()" class="hidden border-2 border-[#064e3b] text-[#064e3b] py-3 px-6 rounded-xl font-bold hover:bg-emerald-50 transition flex items-center gap-2">
+                                    <i class="fa-solid fa-volume-high"></i> ✨ Listen
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Stats Section -->
+            <section id="stats-section" class="py-20 bg-white">
+                <div class="container mx-auto px-4 text-center">
+                    <h2 class="text-3xl font-bold text-[#064e3b] mb-12">Success in Education</h2>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                        <div class="p-6">
+                            <span class="text-4xl font-bold text-yellow-600 block">1,500+</span>
+                            <p class="text-gray-500 mt-2 uppercase tracking-widest text-xs font-bold">Graduates</p>
+                        </div>
+                        <div class="p-6">
+                            <span class="text-4xl font-bold text-yellow-600 block">25+</span>
+                            <p class="text-gray-500 mt-2 uppercase tracking-widest text-xs font-bold">Qualified Teachers</p>
+                        </div>
+                        <div class="p-6">
+                            <span class="text-4xl font-bold text-yellow-600 block">4.9/5</span>
+                            <p class="text-gray-500 mt-2 uppercase tracking-widest text-xs font-bold">Rating</p>
+                        </div>
+                        <div class="p-6">
+                            <span class="text-4xl font-bold text-yellow-600 block">30+</span>
+                            <p class="text-gray-500 mt-2 uppercase tracking-widest text-xs font-bold">Countries</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- COURSE DETAIL VIEW -->
+        <div id="course-view" class="hidden view-transition min-h-screen bg-white">
+            <div class="container mx-auto px-4 py-12">
+                <button onclick="showView('home')" class="mb-8 flex items-center text-[#064e3b] font-bold hover:underline">
+                    <i class="fa-solid fa-arrow-left mr-2"></i> Back to Home
+                </button>
+                <div id="course-content"></div>
+            </div>
+        </div>
+    </main>
+
+    <!-- ✨ FLOATING KNOWLEDGE ASSISTANT -->
+    <div id="chat-container" class="fixed bottom-6 right-6 z-[60]">
+        <!-- Chat Bubble -->
+        <button id="chat-toggle" onclick="toggleChat()" class="bg-[#d4af37] w-16 h-16 rounded-full shadow-2xl flex items-center justify-center text-white hover:scale-110 transition active:scale-95">
+            <i id="chat-icon" class="fa-solid fa-sparkles text-2xl"></i>
+        </button>
+
+        <!-- Chat Window -->
+        <div id="chat-window" class="hidden absolute bottom-20 right-0 w-[350px] md:w-[400px] bg-white rounded-3xl chat-shadow overflow-hidden border border-gray-100">
+            <div class="bg-[#064e3b] p-4 text-white flex justify-between items-center">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+                        <i class="fa-solid fa-robot"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-sm">Academy Assistant</h4>
+                        <p class="text-[10px] opacity-70">✨ Powered by Gemini</p>
+                    </div>
+                </div>
+                <button onclick="toggleChat()"><i class="fa-solid fa-times"></i></button>
+            </div>
+            <div id="chat-messages" class="h-[350px] overflow-y-auto p-4 flex flex-col gap-3 text-sm bg-gray-50">
+                <div class="bg-emerald-100 self-start p-3 rounded-2xl rounded-tl-none max-w-[85%] text-gray-800">
+                    Assalamu Alaikum! I am your Academy Assistant. Ask me anything about our courses or Islamic History.
+                </div>
+            </div>
+            <div class="p-4 bg-white border-t flex gap-2">
+                <input id="chatInput" type="text" placeholder="Ask a question..." class="flex-grow p-2 bg-gray-100 rounded-lg outline-none text-sm" onkeypress="handleChatKey(event)">
+                <button onclick="sendChatMessage()" class="bg-[#064e3b] text-white p-2 w-10 h-10 rounded-lg hover:bg-emerald-800 flex items-center justify-center">
+                    <i id="sendIcon" class="fa-solid fa-paper-plane"></i>
+                    <div id="chatSpinner" class="spinner hidden !w-4 !h-4"></div>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer" class="bg-gray-900 text-gray-400 py-12">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2026 SAYYED ONLINE QUR'AAN ACADEMY. All Rights Reserved.</p>
+            <div class="flex justify-center space-x-6 mt-6">
+                <a href="#" class="hover:text-yellow-500"><i class="fa-brands fa-facebook text-xl"></i></a>
+                <a href="#" class="hover:text-green-500"><i class="fa-brands fa-whatsapp text-xl"></i></a>
+                <a href="#" class="hover:text-red-500"><i class="fa-brands fa-youtube text-xl"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // --- GEMINI API CONFIG ---
+        const apiKey = ""; // Runtime provided
+        const TEXT_MODEL = "gemini-2.5-flash-preview-09-2025";
+        const TTS_MODEL = "gemini-2.5-flash-preview-tts";
+
+        async function callGemini(prompt, systemInstruction = "") {
+            const url = `https://generativelanguage.googleapis.com/v1beta/models/${TEXT_MODEL}:generateContent?key=${apiKey}`;
+            const payload = {
+                contents: [{ parts: [{ text: prompt }] }],
+                systemInstruction: { parts: [{ text: systemInstruction }] }
+            };
+
+            for (let i = 0; i < 5; i++) {
+                try {
+                    const response = await fetch(url, {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify(payload)
+                    });
+                    const data = await response.json();
+                    return data.candidates?.[0]?.content?.parts?.[0]?.text;
+                } catch (err) {
+                    await new Promise(r => setTimeout(r, Math.pow(2, i) * 1000));
+                }
+            }
+            throw new Error("API failed after retries");
+        }
+
+        // --- FEATURE: AI COURSE ADVISOR ---
+        async function getAIRecommendation() {
+            const input = document.getElementById('advisorInput').value;
+            if (!input) return;
+
+            const btnText = document.getElementById('advisorBtnText');
+            const spinner = document.getElementById('advisorSpinner');
+            const resultBox = document.getElementById('advisorResult');
+            const resultText = document.getElementById('advisorText');
+
+            btnText.textContent = "Processing...";
+            spinner.classList.remove('hidden');
+
+            const system = `You are an expert Islamic Educational Counselor for Sayyed Academy.
+            The available courses are:
+            1. 'Aalim / 'Aalimah: 7-year scholarship in Theology and Law.
+            2. Faazil / Faazilah: Post-graduate specialization for those who finished 'Aalim.
+            3. Islamic History: Focused on Seerah and history.
+            4. Arabic Language: Focused on grammar and understanding the Quran.
+            Suggest the most appropriate course based on the user's input. Keep it brief (max 3 sentences).`;
+
+            try {
+                const response = await callGemini(input, system);
+                resultText.textContent = response;
+                resultBox.classList.remove('hidden');
+            } catch (e) {
+                resultText.textContent = "Sorry, I couldn't generate a recommendation right now. Please try again.";
+                resultBox.classList.remove('hidden');
+            } finally {
+                btnText.textContent = "✨ Recommend Path";
+                spinner.classList.add('hidden');
+            }
+        }
+
+        // --- FEATURE: DAILY REFLECTION & TTS ---
+        let currentReflectionText = "";
+
+        async function generateReflection() {
+            const content = document.getElementById('reflectionContent');
+            const btnText = document.getElementById('reflectBtnText');
+            const spinner = document.getElementById('reflectSpinner');
+            const ttsBtn = document.getElementById('ttsBtn');
+
+            btnText.textContent = "Inspiration coming...";
+            spinner.classList.remove('hidden');
+
+            const system = "Generate a short, beautiful spiritual reflection or educational insight based on a Quranic verse or Islamic principle. Include the Arabic verse/phrase if applicable. Use a serene and respectful tone.";
+
+            try {
+                const response = await callGemini("Give me a spiritual reflection for today.", system);
+                currentReflectionText = response;
+                content.innerHTML = `<div class="prose max-w-none text-gray-700 leading-relaxed">${response.replace(/\n/g, '<br>')}</div>`;
+                ttsBtn.classList.remove('hidden');
+            } catch (e) {
+                content.textContent = "Could not reach the wisdom fountain. Please try again.";
+            } finally {
+                btnText.textContent = "✨ Get Reflection";
+                spinner.classList.add('hidden');
+            }
+        }
+
+        async function playReflectionAudio() {
+            if (!currentReflectionText) return;
+            const ttsBtn = document.getElementById('ttsBtn');
+            const originalContent = ttsBtn.innerHTML;
+            ttsBtn.innerHTML = '<i class="fa-solid fa-spinner animate-spin"></i> Preparing...';
+
+            const url = `https://generativelanguage.googleapis.com/v1beta/models/${TTS_MODEL}:generateContent?key=${apiKey}`;
+            const payload = {
+                contents: [{ parts: [{ text: `Say in a calm, scholarly, and serene tone: ${currentReflectionText.substring(0, 500)}` }] }],
+                generationConfig: { 
+                    responseModalities: ["AUDIO"],
+                    speechConfig: { voiceConfig: { prebuiltVoiceConfig: { voiceName: "Puck" } } } 
+                }
+            };
+
+            try {
+                const response = await fetch(url, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(payload)
+                });
+                const data = await response.json();
+                const audioBase64 = data.candidates[0].content.parts[0].inlineData.data;
+                const sampleRate = parseInt(data.candidates[0].content.parts[0].inlineData.mimeType.match(/rate=(\d+)/)[1]);
+                
+                const audioBlob = pcmToWav(audioBase64, sampleRate);
+                const audioUrl = URL.createObjectURL(audioBlob);
+                const audio = new Audio(audioUrl);
+                audio.play();
+            } catch (e) {
+                console.error(e);
+            } finally {
+                ttsBtn.innerHTML = originalContent;
+            }
+        }
+
+        function pcmToWav(base64, sampleRate) {
+            const buffer = Uint8Array.from(atob(base64), c => c.charCodeAt(0)).buffer;
+            const view = new DataView(new ArrayBuffer(44 + buffer.byteLength));
+            const writeString = (offset, string) => {
+                for (let i = 0; i < string.length; i++) view.setUint8(offset + i, string.charCodeAt(i));
+            };
+            writeString(0, 'RIFF');
+            view.setUint32(4, 36 + buffer.byteLength, true);
+            writeString(8, 'WAVE');
+            writeString(12, 'fmt ');
+            view.setUint32(16, 16, true);
+            view.setUint16(20, 1, true);
+            view.setUint16(22, 1, true);
+            view.setUint32(24, sampleRate, true);
+            view.setUint32(28, sampleRate * 2, true);
+            view.setUint16(32, 2, true);
+            view.setUint16(34, 16, true);
+            writeString(36, 'data');
+            view.setUint32(40, buffer.byteLength, true);
+            new Uint8Array(view.buffer, 44).set(new Uint8Array(buffer));
+            return new Blob([view], { type: 'audio/wav' });
+        }
+
+        // --- FEATURE: KNOWLEDGE CHATBOT ---
+        function toggleChat() {
+            const win = document.getElementById('chat-window');
+            win.classList.toggle('hidden');
+        }
+
+        async function sendChatMessage() {
+            const input = document.getElementById('chatInput');
+            const msg = input.value.trim();
+            if (!msg) return;
+
+            addMessage(msg, 'user');
+            input.value = '';
+
+            const icon = document.getElementById('sendIcon');
+            const spinner = document.getElementById('chatSpinner');
+            icon.classList.add('hidden');
+            spinner.classList.remove('hidden');
+
+            const system = "You are the helpful AI Assistant of Sayyed Online Qur'aan Academy. You provide information about the Academy's 4 courses (Aalim, Faazil, Islamic History, Arabic) and basic Islamic educational information. Be polite, spiritual, and professional. When listing multiple items or courses, always use clear bullet points and separate them with new lines to make it easy to read.";
+
+            try {
+                const response = await callGemini(msg, system);
+                addMessage(response, 'bot');
+            } catch (e) {
+                addMessage("I'm sorry, I'm having trouble connecting to my knowledge base. Please try again later.", 'bot');
+            } finally {
+                icon.classList.remove('hidden');
+                spinner.classList.add('hidden');
+            }
+        }
+
+        function addMessage(text, side) {
+            const chatMessages = document.getElementById('chat-messages');
+            const div = document.createElement('div');
+            div.className = side === 'user' 
+                ? 'bg-blue-600 text-white self-end p-3 rounded-2xl rounded-tr-none max-w-[85%]' 
+                : 'bg-emerald-100 text-gray-800 self-start p-3 rounded-2xl rounded-tl-none max-w-[85%]';
+            
+            // Convert newlines to breaks and simple markdown bullets to styled bullets
+            const formatted = text
+                .replace(/\n/g, '<br>')
+                .replace(/^\* (.*?)(<br>|$)/gm, '• $1$2')
+                .replace(/^- (.*?)(<br>|$)/gm, '• $1$2');
+            
+            div.innerHTML = formatted;
+            chatMessages.appendChild(div);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function handleChatKey(e) { if (e.key === 'Enter') sendChatMessage(); }
+
+        // --- GENERAL UI LOGIC ---
+        let slideIdx = 0;
+        const slides = document.querySelectorAll('.hero-slide');
+        function rotateSlides() {
+            if (slides.length < 2) return;
+            slides[slideIdx].classList.remove('active');
+            slideIdx = (slideIdx + 1) % slides.length;
+            slides[slideIdx].classList.add('active');
+        }
+        setInterval(rotateSlides, 3000);
+
+        function showView(v) {
+            document.getElementById('home-view').classList.toggle('hidden', v !== 'home');
+            document.getElementById('course-view').classList.toggle('hidden', v !== 'course');
+            window.scrollTo(0, 0);
+        }
+
+        function openCourse(key) {
+            const data = {
+                aalim: { title: "'Aalim Program", desc: "A rigorous 7-year program mastering Tafseer, Hadith, and Fiqh." },
+                faazil: { title: "Faazil Program", desc: "Advanced specialization in Jurisprudence and Research." },
+                history: { title: "Islamic History", desc: "Comprehensive study of the Ummah's legacy from the Prophets to today." },
+                arabic: { title: "Arabic Language", desc: "Master Classical and Quranic Arabic to engage directly with the text." }
+            }[key];
+            
+            document.getElementById('course-content').innerHTML = `
+                <h2 class="text-4xl font-bold text-[#064e3b] mb-4">${data.title}</h2>
+                <p class="text-lg text-gray-600 mb-8">${data.desc}</p>
+                <div class="bg-gray-50 p-8 rounded-2xl">
+                    <h3 class="font-bold mb-4">Registration Details</h3>
+                    <p>Classes are conducted online via Zoom/Meet. Please contact our admissions team for current intake dates.</p>
+                </div>
+            `;
+            showView('course');
+        }
+
+        function scrollToElement(id) {
+            const el = document.getElementById(id);
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
