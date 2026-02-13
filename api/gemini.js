@@ -51,11 +51,45 @@ export default async function handler(req, res) {
     console.log("Gemini raw:", JSON.stringify(data));
 
     if (tts) {
-      const audio =
-        data?.candidates?.[0]?.content?.parts?.[0]?.inlineData?.data;
-
-      return res.status(200).json({ audio });
+  const response = await fetch(
+    `https://generativelanguage.googleapis.com/v1/models/gemini-2.5-flash:generateContent?key=${API_KEY}`,
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        contents: [
+          {
+            role: "user",
+            parts: [{ text: prompt }]
+          }
+        ],
+        generationConfig: {
+          responseModalities: ["AUDIO"],
+          speechConfig: {
+            voiceConfig: {
+              prebuiltVoiceConfig: {
+                voiceName: "Puck"
+              }
+            }
+          }
+        }
+      })
     }
+  );
+
+  const data = await response.json();
+  console.log("TTS raw:", JSON.stringify(data));
+
+  const audio =
+    data?.candidates?.[0]?.content?.parts?.[0]?.inlineData?.data;
+
+  if (!audio) {
+    return res.status(200).json({ error: "No audio returned" });
+  }
+
+  return res.status(200).json({ audio });
+}
+
 
     const text =
       data?.candidates?.[0]?.content?.parts?.[0]?.text ||
