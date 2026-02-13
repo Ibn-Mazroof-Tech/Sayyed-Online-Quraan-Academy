@@ -331,23 +331,6 @@
           return data.text;
         }
 
-
-            for (let i = 0; i < 5; i++) {
-                try {
-                    const response = await fetch(url, {
-                        method: "POST",
-                        headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify(payload)
-                    });
-                    const data = await response.json();
-                    return data.candidates?.[0]?.content?.parts?.[0]?.text;
-                } catch (err) {
-                    await new Promise(r => setTimeout(r, Math.pow(2, i) * 1000));
-                }
-            }
-            throw new Error("API failed after retries");
-        }
-
         // --- FEATURE: AI COURSE ADVISOR ---
         async function getAIRecommendation() {
             const input = document.getElementById('advisorInput').value;
