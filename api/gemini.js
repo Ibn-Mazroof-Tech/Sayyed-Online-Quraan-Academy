@@ -8,15 +8,22 @@ export default async function handler(req, res) {
     return res.status(500).json({ error: "API key missing" });
   }
 
-  const { prompt, system } = req.body;
+  const { prompt, system, tts } = req.body;
 
   try {
-    const response = await fetch(
-      `https://generativelanguage.googleapis.com/v1/models/gemini-2.5-flash:generateContent?key=${API_KEY}`,
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
+    const body = tts
+      ? {
+          contents: [
+            {
+              role: "user",
+              parts: [{ text: prompt }]
+            }
+          ],
+          generationConfig: {
+            responseModalities: ["AUDIO"]
+          }
+        }
+      : {
           contents: [
             {
               role: "user",
@@ -29,12 +36,26 @@ export default async function handler(req, res) {
               ]
             }
           ]
-        })
+        };
+
+    const response = await fetch(
+      `https://generativelanguage.googleapis.com/v1/models/gemini-2.5-flash:generateContent?key=${API_KEY}`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body)
       }
     );
 
     const data = await response.json();
     console.log("Gemini raw:", JSON.stringify(data));
+
+    if (tts) {
+      const audio =
+        data?.candidates?.[0]?.content?.parts?.[0]?.inlineData?.data;
+
+      return res.status(200).json({ audio });
+    }
 
     const text =
       data?.candidates?.[0]?.content?.parts?.[0]?.text ||
