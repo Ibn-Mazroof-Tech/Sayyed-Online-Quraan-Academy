@@ -20,13 +20,15 @@ export default async function handler(req, res) {
           contents: [
             {
               role: "user",
-              parts: [{ text: prompt }]
+              parts: [
+                {
+                  text: system
+                    ? `${system}\n\nUser: ${prompt}`
+                    : prompt
+                }
+              ]
             }
-          ],
-          systemInstruction: {
-            role: "system",
-            parts: [{ text: system || "" }]
-          }
+          ]
         })
       }
     );
