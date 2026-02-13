@@ -392,45 +392,13 @@
             }
         }
 
-        async function playReflectionAudio() {
-  if (!currentReflectionText) return;
-
-  const ttsBtn = document.getElementById('ttsBtn');
-  const original = ttsBtn.innerHTML;
-  ttsBtn.innerHTML = "🔊 Loading...";
-
-  try {
-    const res = await fetch("/api/gemini", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        prompt: currentReflectionText,
-        tts: true
-      })
-    });
-
-    const data = await res.json();
-
-    if (!data.audio) {
-      alert("No audio received");
-      return;
-    }
-
-    const audio = new Audio(`data:audio/wav;base64,${data.audio}`);
-    audio.play();
-  } catch (err) {
-    console.error(err);
-    alert("Audio failed");
-  } finally {
-    ttsBtn.innerHTML = original;
-  }
-}
+        
 async function playReflectionAudio() {
   if (!currentReflectionText) return;
 
-  const ttsBtn = document.getElementById('ttsBtn');
-  const original = ttsBtn.innerHTML;
-  ttsBtn.innerHTML = "🔊 Loading...";
+  const btn = document.getElementById("ttsBtn");
+  const original = btn.innerHTML;
+  btn.innerHTML = "🔊 Loading...";
 
   try {
     const res = await fetch("/api/gemini", {
@@ -445,19 +413,20 @@ async function playReflectionAudio() {
     const data = await res.json();
 
     if (!data.audio) {
-      alert("No audio received");
+      alert("Audio not generated");
       return;
     }
 
-    const audio = new Audio(`data:audio/wav;base64,${data.audio}`);
-    audio.play();
+    const audio = new Audio("data:audio/wav;base64," + data.audio);
+    await audio.play();
   } catch (err) {
     console.error(err);
     alert("Audio failed");
   } finally {
-    ttsBtn.innerHTML = original;
+    btn.innerHTML = original;
   }
 }
+
 
 
         function pcmToWav(base64, sampleRate) {
