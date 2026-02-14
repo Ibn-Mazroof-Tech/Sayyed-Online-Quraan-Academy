@@ -530,6 +530,13 @@
             const win = document.getElementById('chat-window');
             win.classList.toggle('hidden');
         }
+        const COURSE_LIST = [
+            "Aalim / Aalimah: Full Islamic scholarship including Tafseer, Hadith, and Fiqh",
+            "Faazil / Faazilah: Advanced Islamic specialization and research",
+            "Islamic History: Seerah, Khilafah, Islamic civilization and scholars",
+            "Arabic Language: Grammar, translation, and Qur'an understanding",
+            "Tajweed: Correct Qur'an recitation and pronunciation rules"
+        ];
 
         async function sendChatMessage() {
             const input = document.getElementById('chatInput');
@@ -544,7 +551,21 @@
             icon.classList.add('hidden');
             spinner.classList.remove('hidden');
 
-            const system = "You are the helpful AI Assistant of Sayyed Online Qur'aan Academy. You provide information about the Academy's 4 courses (Aalim, Faazil, Islamic History, Arabic) and basic Islamic educational information. Be polite, spiritual, and professional. When listing multiple items or courses, always use clear bullet points and separate them with new lines to make it easy to read.";
+            const system = `
+                You are the helpful AI Assistant of Sayyed Online Qur'aan Academy.
+
+                These are the available courses:
+                ${COURSE_LIST.map((c, i) => `${i + 1}. ${c}`).join("\n")}
+
+                You help users:
+                - Understand which course suits them
+                - Give brief info about courses
+                - Explain Islamic educational topics
+                - Be polite, respectful, and spiritual in tone
+
+                When listing courses, always use bullet points and clear formatting.
+                `;
+
 
             try {
                 const response = await callGemini(msg, system);
