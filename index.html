@@ -156,7 +156,7 @@
                     <div class="w-24 h-1 bg-yellow-500 mx-auto rounded-full"></div>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
                     <div onclick="openCourse('aalim')" class="course-card bg-white rounded-2xl overflow-hidden shadow-md cursor-pointer p-6 flex flex-col items-center text-center">
                         <div class="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mb-4 text-[#064e3b] text-2xl">
                             <i class="fa-solid fa-book-open"></i>
@@ -184,6 +184,13 @@
                         </div>
                         <h3 class="text-xl font-bold mb-2">Arabic Language</h3>
                         <p class="text-gray-500 text-sm">Mastering the Language of Revelation.</p>
+                    </div>
+                    <div onclick="openCourse('tajweed')" class="course-card bg-white rounded-2xl overflow-hidden shadow-md cursor-pointer p-6 flex flex-col items-center text-center">
+                        <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mb-4 text-red-700 text-2xl">
+                            <i class="fa-solid fa-language"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Tajweed</h3>
+                        <p class="text-gray-500 text-sm">Recite the Qur'aan with Proper Pronunciation.</p>
                     </div>
                 </div>
             </section>
@@ -338,6 +345,7 @@
             2. Faazil / Faazilah: Post-graduate specialization for those who finished 'Aalim.
             3. Islamic History: Focused on Seerah and history.
             4. Arabic Language: Focused on grammar and understanding the Quran.
+            5. Tajweed: Focused on proper Quranic recitation.
             Suggest the most appropriate course based on the user's input. Keep it brief (max 3 sentences).`;
 
             try {
@@ -509,7 +517,8 @@ function playReflectionAudio() {
                 aalim: { title: "'Aalim Program", desc: "A rigorous 7-year program mastering Tafseer, Hadith, and Fiqh." },
                 faazil: { title: "Faazil Program", desc: "Advanced specialization in Jurisprudence and Research." },
                 history: { title: "Islamic History", desc: "Comprehensive study of the Ummah's legacy from the Prophets to today." },
-                arabic: { title: "Arabic Language", desc: "Master Classical and Quranic Arabic to engage directly with the text." }
+                arabic: { title: "Arabic Language", desc: "Master Classical and Quranic Arabic to engage directly with the text." },
+                tajweed: { title: "Tajweed Course", desc: "Learn the art of proper Quranic recitation with expert guidance." }
             }[key];
             
             document.getElementById('course-content').innerHTML = `
