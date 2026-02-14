@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -35,8 +36,13 @@
         }
 
         @keyframes fadeImg {
-            from { opacity: 0.4; }
-            to { opacity: 1; }
+            from {
+                opacity: 0.4;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
 
         .course-card:hover {
@@ -49,8 +55,15 @@
         }
 
         @keyframes slideUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* Loading Spinner */
@@ -62,9 +75,15 @@
             height: 20px;
             animation: spin 1s linear infinite;
         }
+
         @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
         }
 
         /* Chat Window Shadow */
@@ -73,6 +92,7 @@
         }
     </style>
 </head>
+
 <body class="bg-gray-50 text-gray-800">
 
     <!-- Header Navigation -->
@@ -84,14 +104,18 @@
                 </div>
                 <div>
                     <h1 class="text-xl font-bold tracking-tight">SAYYED ONLINE</h1>
-                    <p class="text-xs text-yellow-400 font-semibold uppercase tracking-widest leading-tight">Qur'aan Academy</p>
+                    <p class="text-xs text-yellow-400 font-semibold uppercase tracking-widest leading-tight">Qur'aan
+                        Academy</p>
                 </div>
             </div>
             <nav class="mt-4 md:mt-0">
                 <ul class="flex space-x-6 font-medium">
-                    <li><a href="javascript:void(0)" onclick="showView('home')" class="hover:text-yellow-400 transition">Home</a></li>
-                    <li><a href="#courses-section" onclick="showView('home')" class="hover:text-yellow-400 transition">Courses</a></li>
-                    <li><a href="#reflection-section" onclick="showView('home')" class="hover:text-yellow-400 transition">Reflection</a></li>
+                    <li><a href="javascript:void(0)" onclick="showView('home')"
+                            class="hover:text-yellow-400 transition">Home</a></li>
+                    <li><a href="#courses-section" onclick="showView('home')"
+                            class="hover:text-yellow-400 transition">Courses</a></li>
+                    <li><a href="#reflection-section" onclick="showView('home')"
+                            class="hover:text-yellow-400 transition">Reflection</a></li>
                     <li><a href="#footer" class="hover:text-yellow-400 transition">Contact</a></li>
                 </ul>
             </nav>
@@ -100,30 +124,40 @@
 
     <!-- Main Content Wrapper -->
     <main id="main-content">
-        
+
         <!-- HOME VIEW -->
         <div id="home-view" class="view-transition">
             <!-- Hero Banner Slider -->
             <section class="relative h-[400px] md:h-[500px] overflow-hidden">
                 <!-- Slide 1: Quran Study -->
                 <div class="hero-slide active h-full relative">
-                    <img src="https://images.unsplash.com/photo-1585036156171-384164a8c675?auto=format&fit=crop&q=80&w=1600" alt="Quran Study" class="w-full h-full object-cover">
+                    <img src="https://images.unsplash.com/photo-1585036156171-384164a8c675?auto=format&fit=crop&q=80&w=1600"
+                        alt="Quran Study" class="w-full h-full object-cover">
                     <div class="absolute inset-0 bg-black/50 flex items-center justify-center">
                         <div class="text-center px-4">
-                            <h2 class="text-4xl md:text-6xl text-white font-bold mb-4">Sacred Knowledge for Every Heart</h2>
-                            <p class="text-xl text-yellow-200 mb-8 italic">Authentic curricula taught by qualified scholars.</p>
-                            <button onclick="scrollToElement('courses-section')" class="bg-[#d4af37] text-white px-8 py-3 rounded-full font-bold hover:bg-yellow-600 transition shadow-lg">Explore Courses</button>
+                            <h2 class="text-4xl md:text-6xl text-white font-bold mb-4">Sacred Knowledge for Every Heart
+                            </h2>
+                            <p class="text-xl text-yellow-200 mb-8 italic">Authentic curricula taught by qualified
+                                scholars.</p>
+                            <button onclick="scrollToElement('courses-section')"
+                                class="bg-[#d4af37] text-white px-8 py-3 rounded-full font-bold hover:bg-yellow-600 transition shadow-lg">Explore
+                                Courses</button>
                         </div>
                     </div>
                 </div>
                 <!-- Slide 2: Islamic Literature -->
                 <div class="hero-slide h-full relative">
-                    <img src="https://images.unsplash.com/photo-1516979187457-637abb4f9353?auto=format&fit=crop&q=80&w=1600" alt="Islamic Literature" class="w-full h-full object-cover">
+                    <img src="https://images.unsplash.com/photo-1516979187457-637abb4f9353?auto=format&fit=crop&q=80&w=1600"
+                        alt="Islamic Literature" class="w-full h-full object-cover">
                     <div class="absolute inset-0 bg-black/50 flex items-center justify-center">
                         <div class="text-center px-4">
-                            <h2 class="text-4xl md:text-6xl text-white font-bold mb-4 uppercase tracking-wider">Islamic Literature</h2>
-                            <p class="text-xl text-yellow-200 mb-8 italic">Preserving the Scholarly Heritage through classical texts.</p>
-                            <button onclick="scrollToElement('courses-section')" class="bg-[#d4af37] text-white px-8 py-3 rounded-full font-bold hover:bg-yellow-600 transition shadow-lg">View Programs</button>
+                            <h2 class="text-4xl md:text-6xl text-white font-bold mb-4 uppercase tracking-wider">Islamic
+                                Literature</h2>
+                            <p class="text-xl text-yellow-200 mb-8 italic">Preserving the Scholarly Heritage through
+                                classical texts.</p>
+                            <button onclick="scrollToElement('courses-section')"
+                                class="bg-[#d4af37] text-white px-8 py-3 rounded-full font-bold hover:bg-yellow-600 transition shadow-lg">View
+                                Programs</button>
                         </div>
                     </div>
                 </div>
@@ -133,16 +167,20 @@
             <section class="bg-[#064e3b] text-white py-12">
                 <div class="container mx-auto px-4 text-center">
                     <h3 class="text-2xl font-bold mb-4">Not sure which course is right for you?</h3>
-                    <p class="mb-8 opacity-90">Describe your background and goals, and our ✨ AI Advisor will recommend the perfect path.</p>
+                    <p class="mb-8 opacity-90">Describe your background and goals, and our ✨ AI Advisor will recommend
+                        the perfect path.</p>
                     <div class="max-w-2xl mx-auto flex flex-col md:flex-row gap-4">
-                        <input id="advisorInput" type="text" placeholder="e.g., 'I am a beginner who wants to understand the meaning of Salah better.'" 
-                               class="flex-grow p-4 rounded-xl text-gray-900 border-none outline-none">
-                        <button onclick="getAIRecommendation()" class="bg-yellow-500 hover:bg-yellow-400 text-gray-900 font-bold py-4 px-8 rounded-xl transition flex items-center justify-center gap-2">
+                        <input id="advisorInput" type="text"
+                            placeholder="e.g., 'I am a beginner who wants to understand the meaning of Salah better.'"
+                            class="flex-grow p-4 rounded-xl text-gray-900 border-none outline-none">
+                        <button onclick="getAIRecommendation()"
+                            class="bg-yellow-500 hover:bg-yellow-400 text-gray-900 font-bold py-4 px-8 rounded-xl transition flex items-center justify-center gap-2">
                             <span id="advisorBtnText">✨ Recommend Path</span>
                             <div id="advisorSpinner" class="spinner hidden"></div>
                         </button>
                     </div>
-                    <div id="advisorResult" class="mt-8 p-6 bg-white/10 rounded-2xl hidden text-left border border-white/20">
+                    <div id="advisorResult"
+                        class="mt-8 p-6 bg-white/10 rounded-2xl hidden text-left border border-white/20">
                         <h4 class="font-bold text-yellow-400 mb-2">Our Recommendation:</h4>
                         <div id="advisorText" class="text-lg leading-relaxed"></div>
                     </div>
@@ -157,36 +195,46 @@
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
-                    <div onclick="openCourse('aalim')" class="course-card bg-white rounded-2xl overflow-hidden shadow-md cursor-pointer p-6 flex flex-col items-center text-center">
-                        <div class="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mb-4 text-[#064e3b] text-2xl">
+                    <div onclick="openCourse('aalim')"
+                        class="course-card bg-white rounded-2xl overflow-hidden shadow-md cursor-pointer p-6 flex flex-col items-center text-center">
+                        <div
+                            class="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mb-4 text-[#064e3b] text-2xl">
                             <i class="fa-solid fa-book-open"></i>
                         </div>
                         <h3 class="text-xl font-bold mb-2">'Aalim / 'Aalimah</h3>
                         <p class="text-gray-500 text-sm">Sacred Scholarship in Theology and Law.</p>
                     </div>
-                    <div onclick="openCourse('faazil')" class="course-card bg-white rounded-2xl overflow-hidden shadow-md cursor-pointer p-6 flex flex-col items-center text-center">
-                        <div class="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mb-4 text-amber-700 text-2xl">
+                    <div onclick="openCourse('faazil')"
+                        class="course-card bg-white rounded-2xl overflow-hidden shadow-md cursor-pointer p-6 flex flex-col items-center text-center">
+                        <div
+                            class="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mb-4 text-amber-700 text-2xl">
                             <i class="fa-solid fa-graduation-cap"></i>
                         </div>
                         <h3 class="text-xl font-bold mb-2">Faazil / Faazilah</h3>
                         <p class="text-gray-500 text-sm">Advanced Specialization and Research.</p>
                     </div>
-                    <div onclick="openCourse('history')" class="course-card bg-white rounded-2xl overflow-hidden shadow-md cursor-pointer p-6 flex flex-col items-center text-center">
-                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4 text-blue-700 text-2xl">
+                    <div onclick="openCourse('history')"
+                        class="course-card bg-white rounded-2xl overflow-hidden shadow-md cursor-pointer p-6 flex flex-col items-center text-center">
+                        <div
+                            class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4 text-blue-700 text-2xl">
                             <i class="fa-solid fa-landmark"></i>
                         </div>
                         <h3 class="text-xl font-bold mb-2">Islamic History</h3>
                         <p class="text-gray-500 text-sm">The Legacy of Prophets and Civilization.</p>
                     </div>
-                    <div onclick="openCourse('arabic')" class="course-card bg-white rounded-2xl overflow-hidden shadow-md cursor-pointer p-6 flex flex-col items-center text-center">
-                        <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mb-4 text-red-700 text-2xl">
+                    <div onclick="openCourse('arabic')"
+                        class="course-card bg-white rounded-2xl overflow-hidden shadow-md cursor-pointer p-6 flex flex-col items-center text-center">
+                        <div
+                            class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mb-4 text-red-700 text-2xl">
                             <i class="fa-solid fa-language"></i>
                         </div>
                         <h3 class="text-xl font-bold mb-2">Arabic Language</h3>
                         <p class="text-gray-500 text-sm">Mastering the Language of Revelation.</p>
                     </div>
-                    <div onclick="openCourse('tajweed')" class="course-card bg-white rounded-2xl overflow-hidden shadow-md cursor-pointer p-6 flex flex-col items-center text-center">
-                        <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mb-4 text-red-700 text-2xl">
+                    <div onclick="openCourse('tajweed')"
+                        class="course-card bg-white rounded-2xl overflow-hidden shadow-md cursor-pointer p-6 flex flex-col items-center text-center">
+                        <div
+                            class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mb-4 text-red-700 text-2xl">
                             <i class="fa-solid fa-language"></i>
                         </div>
                         <h3 class="text-xl font-bold mb-2">Tajweed</h3>
@@ -198,22 +246,28 @@
             <!-- ✨ SPIRITUAL REFLECTION SECTION -->
             <section id="reflection-section" class="py-20 bg-gray-100">
                 <div class="container mx-auto px-4">
-                    <div class="max-w-4xl mx-auto bg-white rounded-3xl shadow-xl overflow-hidden flex flex-col md:flex-row border-4 border-[#064e3b]">
-                        <div class="md:w-1/3 bg-[#064e3b] p-8 text-white flex flex-col justify-center items-center text-center">
+                    <div
+                        class="max-w-4xl mx-auto bg-white rounded-3xl shadow-xl overflow-hidden flex flex-col md:flex-row border-4 border-[#064e3b]">
+                        <div
+                            class="md:w-1/3 bg-[#064e3b] p-8 text-white flex flex-col justify-center items-center text-center">
                             <i class="fa-solid fa-star-and-crescent text-6xl text-yellow-400 mb-6"></i>
                             <h3 class="text-2xl font-bold">Daily Insight</h3>
-                            <p class="mt-4 text-sm opacity-80 italic">Fresh wisdom generated daily by our ✨ AI educator.</p>
+                            <p class="mt-4 text-sm opacity-80 italic">Fresh wisdom generated daily by our ✨ AI educator.
+                            </p>
                         </div>
                         <div class="md:w-2/3 p-8 flex flex-col justify-between">
                             <div id="reflectionContent">
-                                <p class="text-gray-400 italic">Click the button below to generate today's spiritual reflection...</p>
+                                <p class="text-gray-400 italic">Click the button below to generate today's spiritual
+                                    reflection...</p>
                             </div>
                             <div class="mt-8 flex flex-wrap gap-4">
-                                <button onclick="generateReflection()" class="bg-[#064e3b] text-white py-3 px-6 rounded-xl font-bold hover:bg-emerald-800 transition flex items-center gap-2">
+                                <button onclick="generateReflection()"
+                                    class="bg-[#064e3b] text-white py-3 px-6 rounded-xl font-bold hover:bg-emerald-800 transition flex items-center gap-2">
                                     <span id="reflectBtnText">✨ Get Reflection</span>
                                     <div id="reflectSpinner" class="spinner hidden"></div>
                                 </button>
-                                <button id="ttsBtn" onclick="playReflectionAudio()" class="hidden border-2 border-[#064e3b] text-[#064e3b] py-3 px-6 rounded-xl font-bold hover:bg-emerald-50 transition flex items-center gap-2">
+                                <button id="ttsBtn" onclick="playReflectionAudio()"
+                                    class="hidden border-2 border-[#064e3b] text-[#064e3b] py-3 px-6 rounded-xl font-bold hover:bg-emerald-50 transition flex items-center gap-2">
                                     <i class="fa-solid fa-volume-high"></i> ✨ Listen
                                 </button>
                             </div>
@@ -233,7 +287,8 @@
                         </div>
                         <div class="p-6">
                             <span class="text-4xl font-bold text-yellow-600 block">25+</span>
-                            <p class="text-gray-500 mt-2 uppercase tracking-widest text-xs font-bold">Qualified Teachers</p>
+                            <p class="text-gray-500 mt-2 uppercase tracking-widest text-xs font-bold">Qualified Teachers
+                            </p>
                         </div>
                         <div class="p-6">
                             <span class="text-4xl font-bold text-yellow-600 block">4.9/5</span>
@@ -251,7 +306,8 @@
         <!-- COURSE DETAIL VIEW -->
         <div id="course-view" class="hidden view-transition min-h-screen bg-white">
             <div class="container mx-auto px-4 py-12">
-                <button onclick="showView('home')" class="mb-8 flex items-center text-[#064e3b] font-bold hover:underline">
+                <button onclick="showView('home')"
+                    class="mb-8 flex items-center text-[#064e3b] font-bold hover:underline">
                     <i class="fa-solid fa-arrow-left mr-2"></i> Back to Home
                 </button>
                 <div id="course-content"></div>
@@ -262,12 +318,14 @@
     <!-- ✨ FLOATING KNOWLEDGE ASSISTANT -->
     <div id="chat-container" class="fixed bottom-6 right-6 z-[60]">
         <!-- Chat Bubble -->
-        <button id="chat-toggle" onclick="toggleChat()" class="bg-[#d4af37] w-16 h-16 rounded-full shadow-2xl flex items-center justify-center text-white hover:scale-110 transition active:scale-95">
+        <button id="chat-toggle" onclick="toggleChat()"
+            class="bg-[#d4af37] w-16 h-16 rounded-full shadow-2xl flex items-center justify-center text-white hover:scale-110 transition active:scale-95">
             <i id="chat-icon" class="fa-solid fa-sparkles text-2xl"></i>
         </button>
 
         <!-- Chat Window -->
-        <div id="chat-window" class="hidden absolute bottom-20 right-0 w-[350px] md:w-[400px] bg-white rounded-3xl chat-shadow overflow-hidden border border-gray-100">
+        <div id="chat-window"
+            class="hidden absolute bottom-20 right-0 w-[350px] md:w-[400px] bg-white rounded-3xl chat-shadow overflow-hidden border border-gray-100">
             <div class="bg-[#064e3b] p-4 text-white flex justify-between items-center">
                 <div class="flex items-center gap-3">
                     <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
@@ -286,8 +344,10 @@
                 </div>
             </div>
             <div class="p-4 bg-white border-t flex gap-2">
-                <input id="chatInput" type="text" placeholder="Ask a question..." class="flex-grow p-2 bg-gray-100 rounded-lg outline-none text-sm" onkeypress="handleChatKey(event)">
-                <button onclick="sendChatMessage()" class="bg-[#064e3b] text-white p-2 w-10 h-10 rounded-lg hover:bg-emerald-800 flex items-center justify-center">
+                <input id="chatInput" type="text" placeholder="Ask a question..."
+                    class="flex-grow p-2 bg-gray-100 rounded-lg outline-none text-sm" onkeypress="handleChatKey(event)">
+                <button onclick="sendChatMessage()"
+                    class="bg-[#064e3b] text-white p-2 w-10 h-10 rounded-lg hover:bg-emerald-800 flex items-center justify-center">
                     <i id="sendIcon" class="fa-solid fa-paper-plane"></i>
                     <div id="chatSpinner" class="spinner hidden !w-4 !h-4"></div>
                 </button>
@@ -300,8 +360,10 @@
         <div class="container mx-auto px-4 text-center">
             <p>&copy; 2026 SAYYED ONLINE QUR'AAN ACADEMY. All Rights Reserved.</p>
             <div class="flex justify-center space-x-6 mt-6">
-                <a href="https://www.instagram.com/sayyed_online_quraan_academy" class="hover:text-yellow-500"><i class="fa-brands fa-instagram text-xl"></i></a>
-                <a href="https://wa.me/917830446880" class="hover:text-green-500"><i class="fa-brands fa-whatsapp text-xl"></i></a>
+                <a href="https://www.instagram.com/sayyed_online_quraan_academy" class="hover:text-yellow-500"><i
+                        class="fa-brands fa-instagram text-xl"></i></a>
+                <a href="https://wa.me/917830446880" class="hover:text-green-500"><i
+                        class="fa-brands fa-whatsapp text-xl"></i></a>
             </div>
         </div>
     </footer>
@@ -313,17 +375,17 @@
         const TTS_MODEL = "gemini-2.5-flash-preview-tts";
 
         async function callGemini(prompt, systemInstruction = "") {
-          const res = await fetch("/api/gemini", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              prompt: prompt,
-              system: systemInstruction
-            })
-          });
-        
-          const data = await res.json();
-          return data.text;
+            const res = await fetch("/api/gemini", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    prompt: prompt,
+                    system: systemInstruction
+                })
+            });
+
+            const data = await res.json();
+            return data.text;
         }
 
         // --- FEATURE: AI COURSE ADVISOR ---
@@ -388,34 +450,34 @@
             }
         }
 
-        
-function playReflectionAudio() {
-  if (!currentReflectionText) {
-    alert("Generate reflection first");
-    return;
-  }
 
-  // Stop any previous speech
-  speechSynthesis.cancel();
+        function playReflectionAudio() {
+            if (!currentReflectionText) {
+                alert("Generate reflection first");
+                return;
+            }
 
-  const speech = new SpeechSynthesisUtterance(currentReflectionText);
+            // Stop any previous speech
+            speechSynthesis.cancel();
 
-  // Voice settings
-  speech.lang = "en-US";     // English voice
-  speech.rate = 0.95;        // Speed (0.5 slow → 1 normal → 1.2 fast)
-  speech.pitch = 1;          // Tone
-  speech.volume = 1;         // Volume
+            const speech = new SpeechSynthesisUtterance(currentReflectionText);
 
-  // Try to select best voice automatically
-  const voices = speechSynthesis.getVoices();
-  const preferred =
-    voices.find(v => v.name.includes("Google") && v.lang.includes("en")) ||
-    voices.find(v => v.lang.includes("en"));
+            // Voice settings
+            speech.lang = "en-US";     // English voice
+            speech.rate = 0.95;        // Speed (0.5 slow → 1 normal → 1.2 fast)
+            speech.pitch = 1;          // Tone
+            speech.volume = 1;         // Volume
 
-  if (preferred) speech.voice = preferred;
+            // Try to select best voice automatically
+            const voices = speechSynthesis.getVoices();
+            const preferred =
+                voices.find(v => v.name.includes("Google") && v.lang.includes("en")) ||
+                voices.find(v => v.lang.includes("en"));
 
-  speechSynthesis.speak(speech);
-}
+            if (preferred) speech.voice = preferred;
+
+            speechSynthesis.speak(speech);
+        }
 
 
 
@@ -478,16 +540,16 @@ function playReflectionAudio() {
         function addMessage(text, side) {
             const chatMessages = document.getElementById('chat-messages');
             const div = document.createElement('div');
-            div.className = side === 'user' 
-                ? 'bg-blue-600 text-white self-end p-3 rounded-2xl rounded-tr-none max-w-[85%]' 
+            div.className = side === 'user'
+                ? 'bg-blue-600 text-white self-end p-3 rounded-2xl rounded-tr-none max-w-[85%]'
                 : 'bg-emerald-100 text-gray-800 self-start p-3 rounded-2xl rounded-tl-none max-w-[85%]';
-            
+
             // Convert newlines to breaks and simple markdown bullets to styled bullets
             const formatted = text
                 .replace(/\n/g, '<br>')
                 .replace(/^\* (.*?)(<br>|$)/gm, '• $1$2')
                 .replace(/^- (.*?)(<br>|$)/gm, '• $1$2');
-            
+
             div.innerHTML = formatted;
             chatMessages.appendChild(div);
             chatMessages.scrollTop = chatMessages.scrollHeight;
@@ -514,16 +576,187 @@ function playReflectionAudio() {
 
         function openCourse(key) {
             const data = {
-                aalim: { title: "'Aalim Program", desc: "A rigorous 7-year program mastering Tafseer, Hadith, and Fiqh." },
+                aalim: {
+                    title: "'Aalim / 'Aalimah Program",
+                    desc: `
+                            <p class="mb-4">
+                            Students can enroll by submitting the online form which opens at the beginning of the academic year. 
+                            For more information, contact us through email or WhatsApp.
+                            </p>
+
+                            <h3 class="text-xl font-bold mt-6 mb-2">Eligibility Criteria</h3>
+                            <ul class="list-disc ml-6 mb-4">
+                                <li>For the Three-Year Alimah Course for Women, students must be able to read Qur'an Kareem and understand Urdu.</li>
+                                <li>Classes are conducted online via Zoom, six days a week (Monday–Saturday) in the evening.</li>
+                            </ul>
+
+                            <h3 class="text-xl font-bold mt-6 mb-2">Fees Structure</h3>
+                            <ul class="list-disc ml-6 mb-4">
+                                <li>Registration Fee: INR 100</li>
+                                <li>Semester Fee: INR 3000</li>
+                            </ul>
+
+                            <h3 class="text-xl font-bold mt-6 mb-2">Extra-Curricular Activities</h3>
+                            <ul class="list-disc ml-6 mb-4">
+                                <li>Public Speaking</li>
+                                <li>Essay Writing</li>
+                                <li>Arabic Conversation</li>
+                                <li>Academic Lectures</li>
+                                <li>Muzakarah (Takrar)</li>
+                            </ul>
+
+                            <h3 class="text-xl font-bold mt-6 mb-2">Frequently Asked Questions</h3>
+
+                            <div class="mb-3">
+                                <strong>Q: What is the eligibility criteria?</strong><br>
+                                A: Any female candidate who can read Qur'an and knows Urdu can enroll. Proper recitation with Tajweed and Urdu are also part of the syllabus.
+                            </div>
+
+                            <div class="mb-3">
+                                <strong>Q: Is there any age requirement?</strong><br>
+                                A: Minimum age is 10 years. No maximum age limit. Married women are also welcome.
+                            </div>
+
+                            <div class="mb-3">
+                                <strong>Q: What is the class timing and duration?</strong><br>
+                                A: Classes are 2 hours long — either 05:00–07:00 PM or 07:30–09:30 PM. Timing may slightly change in different seasons.
+                            </div>
+
+                            <div class="mb-3">
+                                <strong>Q: Where are classes conducted?</strong><br>
+                                A: Classes are conducted online through Zoom.
+                            </div>
+
+                            <div class="mb-3">
+                                <strong>Q: How many days per week?</strong><br>
+                                A: Six days a week (Monday to Saturday).
+                            </div>
+
+                            <div class="mb-3">
+                                <strong>Q: How are exams conducted?</strong><br>
+                                A: Semester-end exams are held online. Monthly tests are also conducted to track progress.
+                            </div>
+
+                            <div class="mb-3">
+                                <strong>Q: What are the fees?</strong><br>
+                                A: Registration Fee = INR 100, Semester Fee = INR 3000.
+                            </div>
+  `
+                },
+
                 faazil: { title: "Faazil Program", desc: "Advanced specialization in Jurisprudence and Research." },
-                history: { title: "Islamic History", desc: "Comprehensive study of the Ummah's legacy from the Prophets to today." },
-                arabic: { title: "Arabic Language", desc: "Master Classical and Quranic Arabic to engage directly with the text." },
-                tajweed: { title: "Tajweed Course", desc: "Learn the art of proper Quranic recitation with expert guidance." }
+                history: { 
+  title: "Islamic History", 
+  desc: `
+  <p class="mb-4">
+  This course provides a comprehensive understanding of Islamic civilization, from the life of the Prophet ﷺ to major Islamic dynasties.
+  </p>
+
+  <h3 class="text-xl font-bold mt-6 mb-2">Course Topics</h3>
+  <ul class="list-disc ml-6 mb-4">
+    <li>Life of Prophet Muhammad ﷺ (Seerah)</li>
+    <li>The Four Rightly Guided Caliphs (Khulafa-e-Rashideen)</li>
+    <li>Umayyad Dynasty</li>
+    <li>Abbasid Dynasty</li>
+    <li>Islamic expansion & civilization</li>
+    <li>Major Islamic scholars & contributions</li>
+  </ul>
+
+  <h3 class="text-xl font-bold mt-6 mb-2">What Students Will Learn</h3>
+  <ul class="list-disc ml-6 mb-4">
+    <li>Islamic historical timeline</li>
+    <li>Lessons from Seerah</li>
+    <li>Political & social development of Muslim Ummah</li>
+    <li>Islamic leadership & governance</li>
+    <li>Historical analysis</li>
+  </ul>
+
+  <h3 class="text-xl font-bold mt-6 mb-2">Class Details</h3>
+  <ul class="list-disc ml-6 mb-4">
+    <li>Online classes via Zoom</li>
+    <li>Weekly discussions & lectures</li>
+    <li>Assignments & presentations</li>
+    <li>Periodic tests & final exam</li>
+  </ul>
+  `
+},
+
+                arabic: { 
+  title: "Arabic Language Program", 
+  desc: `
+  <p class="mb-4">
+  This course is designed to help students understand the language of the Qur'an step by step. 
+  It focuses on reading, grammar, translation, and deep understanding of Qur'anic Arabic.
+  </p>
+
+  <h3 class="text-xl font-bold mt-6 mb-2">Course Structure (3 Semesters)</h3>
+  <ul class="list-disc ml-6 mb-4">
+    <li><strong>Semester 1 – Beginner:</strong> Arabic alphabet, basic vocabulary, sentence formation, simple reading.</li>
+    <li><strong>Semester 2 – Grammar & Translation:</strong> Nahw (grammar), Sarf (word forms), basic translation exercises.</li>
+    <li><strong>Semester 3 – Advanced:</strong> Advanced translation of Qur'an, understanding Qur'anic verses, applied grammar.</li>
+  </ul>
+
+  <h3 class="text-xl font-bold mt-6 mb-2">What Students Will Learn</h3>
+  <ul class="list-disc ml-6 mb-4">
+    <li>Read and understand basic Arabic texts</li>
+    <li>Qur'anic vocabulary</li>
+    <li>Grammar (Nahw & Sarf)</li>
+    <li>Sentence analysis</li>
+    <li>Translation skills</li>
+    <li>Understanding Qur'an directly</li>
+  </ul>
+
+  <h3 class="text-xl font-bold mt-6 mb-2">Class Details</h3>
+  <ul class="list-disc ml-6 mb-4">
+    <li>Mode: Online (Zoom)</li>
+    <li>Classes: 5–6 days per week</li>
+    <li>Regular assignments & revision</li>
+    <li>Semester exams</li>
+  </ul>
+  `
+},
+
+                tajweed: { 
+  title: "Tajweed Course", 
+  desc: `
+  <p class="mb-4">
+  This course teaches correct pronunciation and recitation of the Holy Qur'an according to the rules of Tajweed.
+  </p>
+
+  <h3 class="text-xl font-bold mt-6 mb-2">Course Content</h3>
+  <ul class="list-disc ml-6 mb-4">
+    <li>Makharij (points of articulation)</li>
+    <li>Pronunciation of Arabic letters</li>
+    <li>Tajweed rules (Noon Sakin, Meem Sakin, Madd, Qalqalah, etc.)</li>
+    <li>Word and sentence recitation practice</li>
+    <li>Fluency in Qur'an recitation</li>
+    <li>Common mistakes correction</li>
+  </ul>
+
+  <h3 class="text-xl font-bold mt-6 mb-2">What Students Will Learn</h3>
+  <ul class="list-disc ml-6 mb-4">
+    <li>Correct pronunciation of Arabic letters</li>
+    <li>Proper Qur'an recitation</li>
+    <li>Tajweed grammar & rules</li>
+    <li>Reading fluency</li>
+    <li>Confidence in reciting Qur'an</li>
+  </ul>
+
+  <h3 class="text-xl font-bold mt-6 mb-2">Class Details</h3>
+  <ul class="list-disc ml-6 mb-4">
+    <li>Online via Zoom</li>
+    <li>Daily recitation practice</li>
+    <li>Teacher correction & feedback</li>
+    <li>Monthly assessment</li>
+  </ul>
+  `
+},
+
             }[key];
-            
+
             document.getElementById('course-content').innerHTML = `
                 <h2 class="text-4xl font-bold text-[#064e3b] mb-4">${data.title}</h2>
-                <p class="text-lg text-gray-600 mb-8">${data.desc}</p>
+                <div class="text-lg text-gray-600 mb-8">${data.desc}</div>
                 <div class="bg-gray-50 p-8 rounded-2xl">
                     <h3 class="font-bold mb-4">Registration Details</h3>
                     <p>Classes are conducted online via Zoom/Meet. Please contact our admissions team for current intake dates.</p>
@@ -538,4 +771,5 @@ function playReflectionAudio() {
         }
     </script>
 </body>
+
 </html>
