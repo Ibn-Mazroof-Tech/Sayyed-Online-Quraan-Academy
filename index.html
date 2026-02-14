@@ -90,6 +90,26 @@
         .chat-shadow {
             box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
         }
+
+        .ai-orb {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, #1f7a63, #064e3b);
+            color: #ffd54f;
+            font-size: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.6),
+                inset 0 0 10px rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .ai-orb:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.9);
+        }
     </style>
 </head>
 
@@ -318,10 +338,10 @@
     <!-- ✨ FLOATING KNOWLEDGE ASSISTANT -->
     <div id="chat-container" class="fixed bottom-6 right-6 z-[60]">
         <!-- Chat Bubble -->
-        <button id="chat-toggle" onclick="toggleChat()"
-            class="bg-[#d4af37] w-16 h-16 rounded-full shadow-2xl flex items-center justify-center text-white hover:scale-110 transition active:scale-95">
-            <i id="chat-icon" class="fa-solid fa-sparkles text-2xl"></i>
+        <button id="chat-toggle" onclick="toggleChat()" class="ai-orb">
+            <i class="fa-solid fa-moon"></i>
         </button>
+
 
         <!-- Chat Window -->
         <div id="chat-window"
@@ -645,9 +665,9 @@
                 },
 
                 faazil: { title: "Faazil Program", desc: "Advanced specialization in Jurisprudence and Research." },
-                history: { 
-  title: "Islamic History", 
-  desc: `
+                history: {
+                    title: "Islamic History",
+                    desc: `
   <p class="mb-4">
   This course provides a comprehensive understanding of Islamic civilization, from the life of the Prophet ﷺ to major Islamic dynasties.
   </p>
@@ -679,11 +699,11 @@
     <li>Periodic tests & final exam</li>
   </ul>
   `
-},
+                },
 
-                arabic: { 
-  title: "Arabic Language Program", 
-  desc: `
+                arabic: {
+                    title: "Arabic Language Program",
+                    desc: `
   <p class="mb-4">
   This course is designed to help students understand the language of the Qur'an step by step. 
   It focuses on reading, grammar, translation, and deep understanding of Qur'anic Arabic.
@@ -714,11 +734,11 @@
     <li>Semester exams</li>
   </ul>
   `
-},
+                },
 
-                tajweed: { 
-  title: "Tajweed Course", 
-  desc: `
+                tajweed: {
+                    title: "Tajweed Course",
+                    desc: `
   <p class="mb-4">
   This course teaches correct pronunciation and recitation of the Holy Qur'an according to the rules of Tajweed.
   </p>
@@ -750,7 +770,7 @@
     <li>Monthly assessment</li>
   </ul>
   `
-},
+                },
 
             }[key];
 
