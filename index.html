@@ -110,6 +110,10 @@
             transform: scale(1.1);
             box-shadow: 0 0 30px rgba(212, 175, 55, 0.9);
         }
+
+        html {
+            scroll-behavior: smooth;
+        }
     </style>
 </head>
 
@@ -132,16 +136,28 @@
                 <ul class="flex space-x-6 font-medium">
                     <li><a href="javascript:void(0)" onclick="showView('home')"
                             class="hover:text-yellow-400 transition">Home</a></li>
-                    <li><a href="#courses-section" onclick="showView('home')"
-                            class="hover:text-yellow-400 transition">Courses</a></li>
-                    <li><a href="#reflection-section" onclick="showView('home')"
-                            class="hover:text-yellow-400 transition">Reflection</a></li>
+                    <li><a href="javascript:void(0)"
+                            onclick="showView('home'); setTimeout(()=>scrollToElement('courses-section'), 60);">
+                            Courses
+                        </a></li>
+                    <li><a href="javascript:void(0)"
+                            onclick="showView('home'); setTimeout(()=>scrollToElement('reflection-section'), 60);">
+                            Reflection
+                        </a>
+                    </li>
                     <li>
-                        <a href="#testimonials-section" onclick="showView('home')"
-                            class="hover:text-yellow-400 transition">Testimonials</a>
+                        <a href="javascript:void(0)"
+                            onclick="showView('home'); setTimeout(()=>scrollToElement('testimonials-section'), 60);">
+                            Testimonials
+                        </a>
+
                     </li>
 
-                    <li><a href="#footer" class="hover:text-yellow-400 transition">Contact</a></li>
+                    <li><a href="javascript:void(0)"
+                            onclick="showView('home'); setTimeout(()=>scrollToElement('contact'), 60);">
+                            Contact
+                        </a>
+                    </li>
                     <li>
                         <a href="javascript:void(0)" onclick="showView('about')"
                             class="hover:text-yellow-400 transition">About</a>
@@ -374,19 +390,27 @@
                     </h2>
 
                     <!-- Founder -->
-                    <div class="mb-10">
+                    <div class="mb-12">
                         <h3 class="text-2xl font-bold text-[#064e3b] mb-3">About the Founder</h3>
+
                         <p class="text-gray-700 leading-relaxed">
-                            My name is <strong>Mohammad Areeb</strong>, Founder of Sayyed Online Quran Academy.
+                            My name is <strong>Sayyed Muhammad Areeb</strong>, Founder of Sayyed Online Qur'aan Academy.
                             I am a passionate and dedicated Quran teacher committed to spreading authentic Islamic
                             knowledge.
+                            I am a <strong>Haafiz</strong>, <strong>'Aalim</strong>, and <strong>Faazil</strong>, and
+                            currently serving as an
+                            <strong>Islamic Researcher at Jamia Hamdard University</strong>.
+                        </p>
+
+                        <p class="text-gray-700 mt-3 leading-relaxed">
                             With sincerity, patience, and responsibility, my aim is to create a respectful and
                             motivating learning
                             environment for students of all ages. My mission is to ensure that every student learns the
-                            Quran correctly
+                            Qur'aan correctly
                             with Tajweed and develops a strong spiritual connection with it.
                         </p>
                     </div>
+
 
                     <!-- Mission & Vision -->
                     <div class="grid md:grid-cols-2 gap-6 mb-10">
@@ -870,7 +894,48 @@
   `
                 },
 
-                faazil: { title: "Faazil Program", desc: "Advanced specialization in Jurisprudence and Research." },
+                faazil: {
+                    title: "Faazil / Faazilah Program",
+                    desc: `
+    <p class="mb-4">
+      The <strong>Faazil / Faazilah Program</strong> is an advanced level of Islamic scholarship
+      focusing on deep study of Hadith, research methodology, and higher Islamic sciences.
+      This course prepares students for academic research, teaching, and advanced religious guidance.
+    </p>
+
+    <h3 class="text-xl font-bold mt-6 mb-2">Major Books of Hadith (Sihah Sitta)</h3>
+
+    <ul class="list-disc ml-6 mb-4">
+      <li><strong>Sahih al-Bukhari (صحیح بخاری)</strong></li>
+      <li><strong>Sahih Muslim (صحیح مسلم)</strong></li>
+      <li><strong>Sunan an-Nasa'i (سنن نسائی)</strong></li>
+      <li><strong>Sunan Abu Dawood (سنن ابوداؤد)</strong></li>
+      <li><strong>Jami\` at-Tirmidhi (جامع ترمذی)</strong></li>
+      <li><strong>Sunan Ibn Majah (سنن ابن ماجہ)</strong></li>
+    </ul>
+
+    <h3 class="text-xl font-bold mt-6 mb-2">Course Objectives</h3>
+
+    <ul class="list-disc ml-6 mb-4">
+      <li>Advanced understanding of Hadith sciences</li>
+      <li>Research and academic writing skills</li>
+      <li>Critical analysis of classical Islamic texts</li>
+      <li>Preparation for teaching and Islamic scholarship</li>
+      <li>Understanding principles of Fiqh and Usul</li>
+    </ul>
+
+    <h3 class="text-xl font-bold mt-6 mb-2">Class Details</h3>
+
+    <ul class="list-disc ml-6 mb-4">
+      <li>Mode: Online (Live classes)</li>
+      <li>Regular lectures & discussions</li>
+      <li>Research assignments</li>
+      <li>Semester-based evaluation</li>
+      <li>Guidance by qualified scholars</li>
+    </ul>
+  `
+                },
+
                 history: {
                     title: "Islamic History",
                     desc: `
@@ -993,8 +1058,17 @@
 
         function scrollToElement(id) {
             const el = document.getElementById(id);
-            if (el) el.scrollIntoView({ behavior: 'smooth' });
+            if (!el) return;
+
+            const navbarOffset = 80; // adjust according to header height
+            const y = el.getBoundingClientRect().top + window.pageYOffset - navbarOffset;
+
+            window.scrollTo({
+                top: y,
+                behavior: "smooth"
+            });
         }
+
 
         // testimonials logic
         const track = document.getElementById("testimonialTrack");
