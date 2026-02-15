@@ -136,7 +136,16 @@
                             class="hover:text-yellow-400 transition">Courses</a></li>
                     <li><a href="#reflection-section" onclick="showView('home')"
                             class="hover:text-yellow-400 transition">Reflection</a></li>
+                    <li>
+                        <a href="#testimonials-section" onclick="showView('home')"
+                            class="hover:text-yellow-400 transition">Testimonials</a>
+                    </li>
+
                     <li><a href="#footer" class="hover:text-yellow-400 transition">Contact</a></li>
+                    <li>
+                        <a href="javascript:void(0)" onclick="showView('about')"
+                            class="hover:text-yellow-400 transition">About</a>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -297,7 +306,7 @@
             </section>
 
             <!-- Stats Section -->
-            <section class="bg-gray-100 py-16">
+            <section id="testimonials-section" class="bg-gray-100 py-16">
                 <div class="max-w-2xl mx-auto text-center">
 
                     <h2 class="text-2xl font-bold mb-8">What Our Students Say</h2>
@@ -353,6 +362,115 @@
 
         </div>
 
+        <!-- ABOUT VIEW -->
+        <div id="about-view" class="hidden view-transition bg-white min-h-screen">
+
+            <section class="py-16">
+                <div class="max-w-4xl mx-auto px-4">
+
+                    <!-- Page Title -->
+                    <h2 class="text-4xl font-bold text-center text-[#064e3b] mb-10">
+                        About Sayyed Online Qur'aan Academy
+                    </h2>
+
+                    <!-- Founder -->
+                    <div class="mb-10">
+                        <h3 class="text-2xl font-bold text-[#064e3b] mb-3">About the Founder</h3>
+                        <p class="text-gray-700 leading-relaxed">
+                            My name is <strong>Mohammad Areeb</strong>, Founder of Sayyed Online Quran Academy.
+                            I am a passionate and dedicated Quran teacher committed to spreading authentic Islamic
+                            knowledge.
+                            With sincerity, patience, and responsibility, my aim is to create a respectful and
+                            motivating learning
+                            environment for students of all ages. My mission is to ensure that every student learns the
+                            Quran correctly
+                            with Tajweed and develops a strong spiritual connection with it.
+                        </p>
+                    </div>
+
+                    <!-- Mission & Vision -->
+                    <div class="grid md:grid-cols-2 gap-6 mb-10">
+
+                        <div class="bg-gray-50 p-6 rounded-xl shadow">
+                            <h3 class="text-xl font-bold text-[#064e3b] mb-2">Our Mission</h3>
+                            <p class="text-gray-700">
+                                To provide structured and accessible Quran education with proper pronunciation
+                                (Makharij),
+                                Tajweed rules, and understanding.
+                            </p>
+                        </div>
+
+                        <div class="bg-gray-50 p-6 rounded-xl shadow">
+                            <h3 class="text-xl font-bold text-[#064e3b] mb-2">Our Vision</h3>
+                            <p class="text-gray-700">
+                                To build a generation that not only recites the Quran beautifully but also practices
+                                its teachings in everyday life.
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <!-- Courses -->
+                    <div class="mb-10">
+                        <h3 class="text-2xl font-bold text-[#064e3b] mb-4">Our Courses</h3>
+                        <ul class="space-y-2 text-gray-700">
+
+                            <li>📖 <strong>Noorani Qaida:</strong> For beginners to learn Arabic letters, pronunciation,
+                                and basic Tajweed rules.</li>
+                            <li>📖 <strong>Quran Reading with Tajweed:</strong> Step-by-step guidance to improve fluency
+                                and correct recitation.</li>
+                            <li>📖 <strong>Hifz Support Program:</strong> Memorization guidance with revision planning
+                                and progress tracking.</li>
+                            <li>📖 <strong>Basic Islamic Studies:</strong> Daily duas, Islamic manners, and essential
+                                teachings.</li>
+                            <li>📖 <strong>Namaz & Duas Training:</strong> Complete guidance on Salah with proper
+                                pronunciation and understanding.</li>
+
+                        </ul>
+                    </div>
+
+                    <!-- Teaching Method -->
+                    <div class="mb-10">
+                        <h3 class="text-2xl font-bold text-[#064e3b] mb-4">Our Teaching Method</h3>
+                        <ul class="list-disc ml-6 text-gray-700 space-y-1">
+                            <li>One-on-one and small group classes</li>
+                            <li>Friendly and disciplined environment</li>
+                            <li>Flexible class timings</li>
+                            <li>Regular progress assessments</li>
+                            <li>Special focus on children and beginners</li>
+                            <li>Female teacher option available</li>
+                        </ul>
+                    </div>
+
+                    <!-- Why Choose Us -->
+                    <div class="mb-10">
+                        <h3 class="text-2xl font-bold text-[#064e3b] mb-4">Why Choose Us?</h3>
+                        <ul class="grid md:grid-cols-2 gap-2 text-gray-700">
+                            <li>✔ Qualified and dedicated teacher</li>
+                            <li>✔ Focus on Tajweed & Makharij</li>
+                            <li>✔ Affordable fee structure</li>
+                            <li>✔ Online classes worldwide</li>
+                            <li>✔ Safe and comfortable learning environment</li>
+                        </ul>
+                    </div>
+
+                    <!-- Admission -->
+                    <div class="bg-[#064e3b] text-white p-8 rounded-2xl text-center">
+                        <h3 class="text-2xl font-bold mb-3">Admissions Open</h3>
+                        <p class="mb-4">We are currently accepting new students for online Quran classes.</p>
+
+                        <p>📞 Call / WhatsApp: <strong>7830446880</strong></p>
+                        <p>📧 Email: <strong>mohdareeb23@gmail.com</strong></p>
+                        <p>🌍 Online Classes – Flexible Timings</p>
+                    </div>
+
+                </div>
+            </section>
+
+        </div>
+
+
+
         <!-- COURSE DETAIL VIEW -->
         <div id="course-view" class="hidden view-transition min-h-screen bg-white">
             <div class="container mx-auto px-4 py-12">
@@ -405,7 +523,7 @@
         </div>
     </div>
 
-<!-- Contact Section -->
+    <!-- Contact Section -->
     <section id="contact" class="py-20 bg-white">
         <div class="max-w-3xl mx-auto px-4">
 
@@ -449,7 +567,7 @@
             </div>
         </div>
     </footer>
-    
+
 
 
 
@@ -677,8 +795,10 @@
         function showView(v) {
             document.getElementById('home-view').classList.toggle('hidden', v !== 'home');
             document.getElementById('course-view').classList.toggle('hidden', v !== 'course');
+            document.getElementById('about-view').classList.toggle('hidden', v !== 'about');
             window.scrollTo(0, 0);
         }
+
 
         function openCourse(key) {
             const data = {
