@@ -215,30 +215,6 @@
                 
             </section>
 
-            <!-- ✨ AI COURSE ADVISOR -->
-            <section class="bg-[#064e3b] text-white py-12">
-                <div class="container mx-auto px-4 text-center">
-                    <h3 class="text-2xl font-bold mb-4">Not sure which course is right for you?</h3>
-                    <p class="mb-8 opacity-90">Describe your background and goals, and our ✨ AI Advisor will recommend
-                        the perfect path.</p>
-                    <div class="max-w-2xl mx-auto flex flex-col md:flex-row gap-4">
-                        <input id="advisorInput" type="text"
-                            placeholder="e.g., 'I am a beginner who wants to understand the meaning of Salah better.'"
-                            class="flex-grow p-4 rounded-xl text-gray-900 border-none outline-none">
-                        <button onclick="getAIRecommendation()"
-                            class="bg-yellow-500 hover:bg-yellow-400 text-gray-900 font-bold py-4 px-8 rounded-xl transition flex items-center justify-center gap-2">
-                            <span id="advisorBtnText">✨ Recommend Path</span>
-                            <div id="advisorSpinner" class="spinner hidden"></div>
-                        </button>
-                    </div>
-                    <div id="advisorResult"
-                        class="mt-8 p-6 bg-white/10 rounded-2xl hidden text-left border border-white/20">
-                        <h4 class="font-bold text-yellow-400 mb-2">Our Recommendation:</h4>
-                        <div id="advisorText" class="text-lg leading-relaxed"></div>
-                    </div>
-                </div>
-            </section>
-
             <!-- Courses Section -->
             <section id="courses-section" class="py-20 container mx-auto px-4">
                 <div class="text-center mb-16">
@@ -305,7 +281,29 @@
 
                 </div>
             </section>
-
+            <!-- ✨ AI COURSE ADVISOR -->
+            <section class="bg-[#064e3b] text-white py-12">
+                <div class="container mx-auto px-4 text-center">
+                    <h3 class="text-2xl font-bold mb-4">Not sure which course is right for you?</h3>
+                    <p class="mb-8 opacity-90">Describe your background and goals, and our ✨ AI Advisor will recommend
+                        the perfect path.</p>
+                    <div class="max-w-2xl mx-auto flex flex-col md:flex-row gap-4">
+                        <input id="advisorInput" type="text"
+                            placeholder="e.g., 'I am a beginner who wants to understand the meaning of Salah better.'"
+                            class="flex-grow p-4 rounded-xl text-gray-900 border-none outline-none">
+                        <button onclick="getAIRecommendation()"
+                            class="bg-yellow-500 hover:bg-yellow-400 text-gray-900 font-bold py-4 px-8 rounded-xl transition flex items-center justify-center gap-2">
+                            <span id="advisorBtnText">✨ Recommend Path</span>
+                            <div id="advisorSpinner" class="spinner hidden"></div>
+                        </button>
+                    </div>
+                    <div id="advisorResult"
+                        class="mt-8 p-6 bg-white/10 rounded-2xl hidden text-left border border-white/20">
+                        <h4 class="font-bold text-yellow-400 mb-2">Our Recommendation:</h4>
+                        <div id="advisorText" class="text-lg leading-relaxed"></div>
+                    </div>
+                </div>
+            </section>
             <!-- ✨ SPIRITUAL REFLECTION SECTION -->
             <section id="reflection-section" class="py-20 bg-gray-100">
                 <div class="container mx-auto px-4">
