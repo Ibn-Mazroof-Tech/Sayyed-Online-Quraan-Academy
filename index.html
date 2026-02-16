@@ -176,36 +176,43 @@
             <section class="relative h-[400px] md:h-[500px] overflow-hidden">
                 <!-- Slide 1: Quran Study -->
                 <div class="hero-slide active h-full relative">
-                    <img src="https://images.unsplash.com/photo-1585036156171-384164a8c675?auto=format&fit=crop&q=80&w=1600"
-                        alt="Quran Study" class="w-full h-full object-cover">
-                    <div class="absolute inset-0 bg-black/50 flex items-center justify-center">
-                        <div class="text-center px-4">
-                            <h2 class="text-4xl md:text-6xl text-white font-bold mb-4">Sacred Knowledge for Every Heart
-                            </h2>
-                            <p class="text-xl text-yellow-200 mb-8 italic">Authentic curricula taught by qualified
-                                scholars.</p>
-                            <button onclick="scrollToElement('courses-section')"
-                                class="bg-[#d4af37] text-white px-8 py-3 rounded-full font-bold hover:bg-yellow-600 transition shadow-lg">Explore
-                                Courses</button>
-                        </div>
-                    </div>
-                </div>
-                <!-- Slide 2: Islamic Literature -->
-                <div class="hero-slide h-full relative">
-                    <img src="https://images.unsplash.com/photo-1516979187457-637abb4f9353?auto=format&fit=crop&q=80&w=1600"
-                        alt="Islamic Literature" class="w-full h-full object-cover">
-                    <div class="absolute inset-0 bg-black/50 flex items-center justify-center">
-                        <div class="text-center px-4">
-                            <h2 class="text-4xl md:text-6xl text-white font-bold mb-4 uppercase tracking-wider">Islamic
-                                Literature</h2>
-                            <p class="text-xl text-yellow-200 mb-8 italic">Preserving the Scholarly Heritage through
-                                classical texts.</p>
-                            <button onclick="scrollToElement('courses-section')"
-                                class="bg-[#d4af37] text-white px-8 py-3 rounded-full font-bold hover:bg-yellow-600 transition shadow-lg">View
-                                Programs</button>
-                        </div>
-                    </div>
-                </div>
+
+  <!-- Background Image -->
+  <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&q=80&w=1600"
+       alt="Islamic Education" class="w-full h-full object-cover">
+
+  <!-- Dark Overlay -->
+  <div class="absolute inset-0 bg-black/60"></div>
+
+  <!-- Founder + Director Center -->
+  <div class="absolute inset-0 flex items-center justify-center">
+
+    <div class="flex flex-col md:flex-row gap-12 items-center">
+
+      <!-- Founder -->
+      <div class="text-center">
+        <img src="areeb.jpeg"
+             class="w-36 h-36 rounded-full mx-auto object-cover border-4 border-yellow-400 shadow-xl mb-4">
+
+        <h3 class="text-white text-xl font-bold">Sayyed Muhammad Areeb</h3>
+        <p class="text-yellow-300 text-sm font-semibold">Founder</p>
+      </div>
+
+      <!-- Director -->
+      <div class="text-center">
+        <img src="https://i1.rgstatic.net/ii/profile.image/279251824726016-1443590231040_Q128/Dr-Andrabi.jpg"
+             class="w-36 h-36 rounded-full mx-auto object-cover border-4 border-yellow-400 shadow-xl mb-4">
+
+        <h3 class="text-white text-xl font-bold">Director Name</h3>
+        <p class="text-yellow-300 text-sm font-semibold">Director</p>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+                
             </section>
 
             <!-- ✨ AI COURSE ADVISOR -->
@@ -285,6 +292,17 @@
                         <h3 class="text-xl font-bold mb-2">Tajweed</h3>
                         <p class="text-gray-500 text-sm">Recite the Qur'aan with Proper Pronunciation.</p>
                     </div>
+                    <div onclick="openCourse('quran')"
+     class="course-card bg-white rounded-2xl overflow-hidden shadow-md cursor-pointer p-6 flex flex-col items-center text-center">
+
+  <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4 text-green-700 text-2xl">
+    <i class="fa-solid fa-book-quran"></i>
+  </div>
+
+  <h3 class="text-xl font-bold mb-2">Qur'an Reading</h3>
+  <p class="text-gray-500 text-sm">Reading, Hifz & Basic Translation of the Qur'an.</p>
+</div>
+
                 </div>
             </section>
 
@@ -334,8 +352,8 @@
 
                             <!-- Testimonial 1 -->
                             <div class="w-full flex-shrink-0 p-6">
-                                <img src="https://www.bing.com/th/id/OIP.IugVd90U_1Thy-JfwquUjAHaHa?w=122&h=128&c=8&rs=1&qlt=90&o=6&cb=defcachec1&pid=3.1&rm=2"
-                                    class="w-20 h-20 rounded-full mx-auto mb-4 object-cover">
+                                <!-- <img src="https://www.bing.com/th/id/OIP.IugVd90U_1Thy-JfwquUjAHaHa?w=122&h=128&c=8&rs=1&qlt=90&o=6&cb=defcachec1&pid=3.1&rm=2"
+                                    class="w-20 h-20 rounded-full mx-auto mb-4 object-cover"> -->
                                 <p class="italic text-gray-700">"This academy helped me understand Islam deeply.
                                     Teachers are very sincere."</p>
                                 <h4 class="mt-3 font-semibold">- Abdullah</h4>
@@ -343,8 +361,8 @@
 
                             <!-- Testimonial 2 -->
                             <div class="w-full flex-shrink-0 p-6">
-                                <img src="https://www.bing.com/th/id/OIP.IugVd90U_1Thy-JfwquUjAHaHa?w=122&h=128&c=8&rs=1&qlt=90&o=6&cb=defcachec1&pid=3.1&rm=2"
-                                    class="w-20 h-20 rounded-full mx-auto mb-4 object-cover">
+                                <!-- <img src="https://www.bing.com/th/id/OIP.IugVd90U_1Thy-JfwquUjAHaHa?w=122&h=128&c=8&rs=1&qlt=90&o=6&cb=defcachec1&pid=3.1&rm=2"
+                                    class="w-20 h-20 rounded-full mx-auto mb-4 object-cover"> -->
                                 <p class="italic text-gray-700">"Structured courses and easy explanations. Highly
                                     recommended."</p>
                                 <h4 class="mt-3 font-semibold">- Ayesha</h4>
@@ -352,8 +370,8 @@
 
                             <!-- Testimonial 3 -->
                             <div class="w-full flex-shrink-0 p-6">
-                                <img src="https://www.bing.com/th/id/OIP.IugVd90U_1Thy-JfwquUjAHaHa?w=122&h=128&c=8&rs=1&qlt=90&o=6&cb=defcachec1&pid=3.1&rm=2"
-                                    class="w-20 h-20 rounded-full mx-auto mb-4 object-cover">
+                                <!-- <img src="https://www.bing.com/th/id/OIP.IugVd90U_1Thy-JfwquUjAHaHa?w=122&h=128&c=8&rs=1&qlt=90&o=6&cb=defcachec1&pid=3.1&rm=2"
+                                    class="w-20 h-20 rounded-full mx-auto mb-4 object-cover"> -->
                                 <p class="italic text-gray-700">"My Tajweed improved a lot. JazakAllah Khair to the
                                     academy."</p>
                                 <h4 class="mt-3 font-semibold">- Yusuf</h4>
@@ -635,6 +653,7 @@
             3. Islamic History: Focused on Seerah and history.
             4. Arabic Language: Focused on grammar and understanding the Quran.
             5. Tajweed: Focused on proper Quranic recitation.
+            6. Qur'an Reading: Reading, memorization (Hifz), and basic translation.
             Suggest the most appropriate course based on the user's input. Keep it brief (max 3 sentences).`;
 
             try {
@@ -742,7 +761,9 @@
             "Faazil / Faazilah: Advanced Islamic specialization and research",
             "Islamic History: Seerah, Khilafah, Islamic civilization and scholars",
             "Arabic Language: Grammar, translation, and Qur'an understanding",
-            "Tajweed: Correct Qur'an recitation and pronunciation rules"
+            "Tajweed: Correct Qur'an recitation and pronunciation rules",
+            "Qur'an Reading: Reading, memorization (Hifz), and basic translation"
+
         ];
 
         async function sendChatMessage() {
@@ -1042,6 +1063,45 @@
   </ul>
   `
                 },
+                quran: {
+  title: "Qur'an Reading Program",
+  desc: `
+  <p class="mb-4">
+  This course is designed for students who want to learn proper Qur'an reading,
+  memorization (Hifz), and basic understanding through translation.
+  It is suitable for beginners as well as those who want to improve fluency.
+  </p>
+
+  <h3 class="text-xl font-bold mt-6 mb-2">Course Content</h3>
+  <ul class="list-disc ml-6 mb-4">
+    <li>Basic Qur'an Reading (Fluency & Accuracy)</li>
+    <li>Correct pronunciation of letters</li>
+    <li>Memorization (Hifz) with revision plan</li>
+    <li>Selected Surah memorization</li>
+    <li>Basic word-to-word translation</li>
+    <li>Understanding simple Qur'anic meanings</li>
+  </ul>
+
+  <h3 class="text-xl font-bold mt-6 mb-2">What Students Will Learn</h3>
+  <ul class="list-disc ml-6 mb-4">
+    <li>Fluent Qur'an reading</li>
+    <li>Memorization techniques</li>
+    <li>Daily revision system</li>
+    <li>Confidence in recitation</li>
+    <li>Basic understanding of Qur'an</li>
+  </ul>
+
+  <h3 class="text-xl font-bold mt-6 mb-2">Class Details</h3>
+  <ul class="list-disc ml-6 mb-4">
+    <li>Mode: Online (Zoom)</li>
+    <li>Daily reading & memorization practice</li>
+    <li>Teacher correction & guidance</li>
+    <li>Weekly progress tracking</li>
+    <li>Monthly assessment</li>
+  </ul>
+  `
+},
+
 
             }[key];
 
