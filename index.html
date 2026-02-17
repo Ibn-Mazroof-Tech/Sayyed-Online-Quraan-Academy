@@ -5,9 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SAYYED ONLINE QUR'AAN ACADEMY</title>
-    <!-- Tailwind CSS CDN for utility styles -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Inter:wght@300;400;600;700&display=swap');
@@ -39,7 +37,6 @@
             from {
                 opacity: 0.4;
             }
-
             to {
                 opacity: 1;
             }
@@ -59,7 +56,6 @@
                 opacity: 0;
                 transform: translateY(20px);
             }
-
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -80,7 +76,6 @@
             0% {
                 transform: rotate(0deg);
             }
-
             100% {
                 transform: rotate(360deg);
             }
@@ -119,216 +114,168 @@
 
 <body class="bg-gray-50 text-gray-800">
 
-    <!-- Header Navigation -->
     <header class="bg-[#064e3b] text-white sticky top-0 z-50 shadow-lg">
-        <div class="container mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center">
-            <div class="flex items-center space-x-3 cursor-pointer" onclick="showView('home')">
-                <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center">
-                    <i class="fa-solid fa-mosque text-[#064e3b] text-2xl"></i>
+        <div class="container mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center relative">
+            
+            <div class="flex justify-between w-full md:w-auto items-center">
+                <div class="flex items-center space-x-3 cursor-pointer" onclick="showView('home')">
+                    <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center">
+                        <i class="fa-solid fa-mosque text-[#064e3b] text-2xl"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold tracking-tight">SAYYED ONLINE</h1>
+                        <p class="text-xs text-yellow-400 font-semibold uppercase tracking-widest leading-tight">Qur'aan Academy</p>
+                    </div>
                 </div>
-                <div>
-                    <h1 class="text-xl font-bold tracking-tight">SAYYED ONLINE</h1>
-                    <p class="text-xs text-yellow-400 font-semibold uppercase tracking-widest leading-tight">Qur'aan
-                        Academy</p>
-                </div>
+                
+                <button class="md:hidden text-2xl focus:outline-none" onclick="toggleMenu()">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
             </div>
-            <nav class="mt-4 md:mt-0">
-                <ul class="flex space-x-6 font-medium">
-                    <li><a href="javascript:void(0)" onclick="showView('home')"
-                            class="hover:text-yellow-400 transition">Home</a></li>
-                    <li><a href="javascript:void(0)"
-                            onclick="showView('home'); setTimeout(()=>scrollToElement('courses-section'), 60);">
-                            Courses
-                        </a></li>
-                    <li><a href="javascript:void(0)"
-                            onclick="showView('home'); setTimeout(()=>scrollToElement('reflection-section'), 60);">
-                            Reflection
-                        </a>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0)"
-                            onclick="showView('home'); setTimeout(()=>scrollToElement('testimonials-section'), 60);">
-                            Testimonials
-                        </a>
 
-                    </li>
-
-                    <li><a href="javascript:void(0)"
-                            onclick="showView('home'); setTimeout(()=>scrollToElement('contact'), 60);">
-                            Contact
-                        </a>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0)" onclick="showView('about')"
-                            class="hover:text-yellow-400 transition">About</a>
-                    </li>
+            <nav id="nav-menu" class="hidden md:flex flex-col md:flex-row w-full md:w-auto mt-4 md:mt-0 absolute md:relative top-full left-0 bg-[#064e3b] md:bg-transparent pb-4 md:pb-0 px-4 md:px-0 shadow-lg md:shadow-none transition-all duration-300 z-40">
+                <ul class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6 font-medium text-center md:text-left">
+                    <li><a href="javascript:void(0)" onclick="closeMenu(); showView('home')" class="hover:text-yellow-400 transition block">Home</a></li>
+                    <li><a href="javascript:void(0)" onclick="closeMenu(); showView('home'); setTimeout(()=>scrollToElement('courses-section'), 60);" class="hover:text-yellow-400 transition block">Courses</a></li>
+                    <li><a href="javascript:void(0)" onclick="closeMenu(); showView('home'); setTimeout(()=>scrollToElement('reflection-section'), 60);" class="hover:text-yellow-400 transition block">Reflection</a></li>
+                    <li><a href="javascript:void(0)" onclick="closeMenu(); showView('home'); setTimeout(()=>scrollToElement('testimonials-section'), 60);" class="hover:text-yellow-400 transition block">Testimonials</a></li>
+                    <li><a href="javascript:void(0)" onclick="closeMenu(); showView('home'); setTimeout(()=>scrollToElement('contact'), 60);" class="hover:text-yellow-400 transition block">Contact</a></li>
+                    <li><a href="javascript:void(0)" onclick="closeMenu(); showView('about')" class="hover:text-yellow-400 transition block">About</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Main Content Wrapper -->
     <main id="main-content">
 
-        <!-- HOME VIEW -->
         <div id="home-view" class="view-transition">
-            <!-- Hero Banner Slider -->
-            <section class="relative h-[400px] md:h-[500px] overflow-hidden">
-                <!-- Slide 1: Quran Study -->
-                <div class="hero-slide active h-full relative">
+            <!-- HERO BANNER -->
+<section class="relative w-full h-[420px] md:h-[520px] overflow-hidden">
 
-  <!-- Background Image -->
+  <!-- Banner Image -->
   <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&q=80&w=1600"
-       alt="Islamic Education" class="w-full h-full object-cover">
+       class="absolute inset-0 w-full h-full object-cover">
 
   <!-- Dark Overlay -->
   <div class="absolute inset-0 bg-black/60"></div>
 
   <!-- Founder + Director Center -->
-  <div class="absolute inset-0 flex items-center justify-center">
+  <div class="absolute inset-0 flex items-center justify-center px-4">
 
-    <div class="flex flex-col md:flex-row gap-12 items-center">
+    <div class="flex flex-col md:flex-row items-center gap-8 md:gap-16">
 
       <!-- Founder -->
       <div class="text-center">
         <img src="/imgs/areeb.jpeg"
-             class="w-36 h-36 rounded-full mx-auto object-cover border-4 border-yellow-400 shadow-xl mb-4">
+             class="w-28 h-28 md:w-36 md:h-36 rounded-full border-4 border-yellow-400 shadow-xl object-cover mx-auto mb-3">
 
-        <h3 class="text-white text-xl font-bold">Sayyed Muhammad Areeb</h3>
+        <h3 class="text-white text-lg md:text-xl font-bold">Sayyed Muhammad Areeb</h3>
         <p class="text-yellow-300 text-sm font-semibold">Founder</p>
       </div>
 
       <!-- Director -->
       <div class="text-center">
         <img src="https://i1.rgstatic.net/ii/profile.image/279251824726016-1443590231040_Q128/Dr-Andrabi.jpg"
-             class="w-36 h-36 rounded-full mx-auto object-cover border-4 border-yellow-400 shadow-xl mb-4">
+             class="w-28 h-28 md:w-36 md:h-36 rounded-full border-4 border-yellow-400 shadow-xl object-cover mx-auto mb-3">
 
-        <h3 class="text-white text-xl font-bold">Director Name</h3>
+        <h3 class="text-white text-lg md:text-xl font-bold">Dr. Aabroo Andrabi</h3>
         <p class="text-yellow-300 text-sm font-semibold">Director</p>
       </div>
 
     </div>
 
   </div>
-</div>
+</section>
 
-                
-            </section>
 
-            <!-- Courses Section -->
-            <section id="courses-section" class="py-20 container mx-auto px-4">
+            <section id="courses-section" class="py-20 container mx-auto px-4 md:px-8">
                 <div class="text-center mb-16">
                     <h2 class="text-3xl md:text-4xl font-bold text-[#064e3b] mb-4">Our Programs</h2>
                     <div class="w-24 h-1 bg-yellow-500 mx-auto rounded-full"></div>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
-                    <div onclick="openCourse('aalim')"
-                        class="course-card bg-white rounded-2xl overflow-hidden shadow-md cursor-pointer p-6 flex flex-col items-center text-center">
-                        <div
-                            class="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mb-4 text-[#064e3b] text-2xl">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                    <div onclick="openCourse('aalim')" class="course-card bg-white rounded-2xl overflow-hidden shadow-md cursor-pointer p-6 flex flex-col items-center text-center">
+                        <div class="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mb-4 text-[#064e3b] text-2xl">
                             <i class="fa-solid fa-book-open"></i>
                         </div>
                         <h3 class="text-xl font-bold mb-2">'Aalim / 'Aalimah</h3>
                         <p class="text-gray-500 text-sm">Sacred Scholarship in Theology and Law.</p>
                     </div>
-                    <div onclick="openCourse('faazil')"
-                        class="course-card bg-white rounded-2xl overflow-hidden shadow-md cursor-pointer p-6 flex flex-col items-center text-center">
-                        <div
-                            class="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mb-4 text-amber-700 text-2xl">
+                    <div onclick="openCourse('faazil')" class="course-card bg-white rounded-2xl overflow-hidden shadow-md cursor-pointer p-6 flex flex-col items-center text-center">
+                        <div class="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mb-4 text-amber-700 text-2xl">
                             <i class="fa-solid fa-graduation-cap"></i>
                         </div>
                         <h3 class="text-xl font-bold mb-2">Faazil / Faazilah</h3>
                         <p class="text-gray-500 text-sm">Advanced Specialization and Research.</p>
                     </div>
-                    <div onclick="openCourse('history')"
-                        class="course-card bg-white rounded-2xl overflow-hidden shadow-md cursor-pointer p-6 flex flex-col items-center text-center">
-                        <div
-                            class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4 text-blue-700 text-2xl">
+                    <div onclick="openCourse('history')" class="course-card bg-white rounded-2xl overflow-hidden shadow-md cursor-pointer p-6 flex flex-col items-center text-center">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4 text-blue-700 text-2xl">
                             <i class="fa-solid fa-landmark"></i>
                         </div>
                         <h3 class="text-xl font-bold mb-2">Islamic History</h3>
                         <p class="text-gray-500 text-sm">The Legacy of Prophets and Civilization.</p>
                     </div>
-                    <div onclick="openCourse('arabic')"
-                        class="course-card bg-white rounded-2xl overflow-hidden shadow-md cursor-pointer p-6 flex flex-col items-center text-center">
-                        <div
-                            class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mb-4 text-red-700 text-2xl">
+                    <div onclick="openCourse('arabic')" class="course-card bg-white rounded-2xl overflow-hidden shadow-md cursor-pointer p-6 flex flex-col items-center text-center">
+                        <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mb-4 text-red-700 text-2xl">
                             <i class="fa-solid fa-language"></i>
                         </div>
                         <h3 class="text-xl font-bold mb-2">Arabic Language</h3>
                         <p class="text-gray-500 text-sm">Mastering the Language of Revelation.</p>
                     </div>
-                    <div onclick="openCourse('tajweed')"
-                        class="course-card bg-white rounded-2xl overflow-hidden shadow-md cursor-pointer p-6 flex flex-col items-center text-center">
-                        <div
-                            class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mb-4 text-red-700 text-2xl">
+                    <div onclick="openCourse('tajweed')" class="course-card bg-white rounded-2xl overflow-hidden shadow-md cursor-pointer p-6 flex flex-col items-center text-center">
+                        <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mb-4 text-red-700 text-2xl">
                             <i class="fa-solid fa-language"></i>
                         </div>
                         <h3 class="text-xl font-bold mb-2">Tajweed</h3>
                         <p class="text-gray-500 text-sm">Recite the Qur'aan with Proper Pronunciation.</p>
                     </div>
-                    <div onclick="openCourse('quran')"
-     class="course-card bg-white rounded-2xl overflow-hidden shadow-md cursor-pointer p-6 flex flex-col items-center text-center">
-
-  <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4 text-green-700 text-2xl">
-    <i class="fa-solid fa-book-quran"></i>
-  </div>
-
-  <h3 class="text-xl font-bold mb-2">Qur'an Reading</h3>
-  <p class="text-gray-500 text-sm">Reading, Hifz & Basic Translation of the Qur'an.</p>
-</div>
-
+                    <div onclick="openCourse('quran')" class="course-card bg-white rounded-2xl overflow-hidden shadow-md cursor-pointer p-6 flex flex-col items-center text-center">
+                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4 text-green-700 text-2xl">
+                            <i class="fa-solid fa-book-quran"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Qur'an Reading</h3>
+                        <p class="text-gray-500 text-sm">Reading, Hifz & Basic Translation of the Qur'an.</p>
+                    </div>
                 </div>
             </section>
-            <!-- ✨ AI COURSE ADVISOR -->
-            <section class="bg-[#064e3b] text-white py-12">
-                <div class="container mx-auto px-4 text-center">
+
+            <section class="bg-[#064e3b] text-white py-12 px-4">
+                <div class="container mx-auto text-center">
                     <h3 class="text-2xl font-bold mb-4">Not sure which course is right for you?</h3>
-                    <p class="mb-8 opacity-90">Describe your background and goals, and our ✨ AI Advisor will recommend
-                        the perfect path.</p>
+                    <p class="mb-8 opacity-90">Describe your background and goals, and our ✨ AI Advisor will recommend the perfect path.</p>
                     <div class="max-w-2xl mx-auto flex flex-col md:flex-row gap-4">
-                        <input id="advisorInput" type="text"
-                            placeholder="e.g., 'I am a beginner who wants to understand the meaning of Salah better.'"
-                            class="flex-grow p-4 rounded-xl text-gray-900 border-none outline-none">
-                        <button onclick="getAIRecommendation()"
-                            class="bg-yellow-500 hover:bg-yellow-400 text-gray-900 font-bold py-4 px-8 rounded-xl transition flex items-center justify-center gap-2">
+                        <input id="advisorInput" type="text" placeholder="e.g., 'I am a beginner who wants to understand...'" class="flex-grow p-4 rounded-xl text-gray-900 border-none outline-none w-full md:w-auto">
+                        <button onclick="getAIRecommendation()" class="bg-yellow-500 hover:bg-yellow-400 text-gray-900 font-bold py-4 px-8 rounded-xl transition flex items-center justify-center gap-2 w-full md:w-auto">
                             <span id="advisorBtnText">✨ Recommend Path</span>
                             <div id="advisorSpinner" class="spinner hidden"></div>
                         </button>
                     </div>
-                    <div id="advisorResult"
-                        class="mt-8 p-6 bg-white/10 rounded-2xl hidden text-left border border-white/20">
+                    <div id="advisorResult" class="mt-8 p-6 bg-white/10 rounded-2xl hidden text-left border border-white/20">
                         <h4 class="font-bold text-yellow-400 mb-2">Our Recommendation:</h4>
                         <div id="advisorText" class="text-lg leading-relaxed"></div>
                     </div>
                 </div>
             </section>
-            <!-- ✨ SPIRITUAL REFLECTION SECTION -->
-            <section id="reflection-section" class="py-20 bg-gray-100">
-                <div class="container mx-auto px-4">
-                    <div
-                        class="max-w-4xl mx-auto bg-white rounded-3xl shadow-xl overflow-hidden flex flex-col md:flex-row border-4 border-[#064e3b]">
-                        <div
-                            class="md:w-1/3 bg-[#064e3b] p-8 text-white flex flex-col justify-center items-center text-center">
+
+            <section id="reflection-section" class="py-20 bg-gray-100 px-4">
+                <div class="container mx-auto">
+                    <div class="max-w-4xl mx-auto bg-white rounded-3xl shadow-xl overflow-hidden flex flex-col md:flex-row border-4 border-[#064e3b]">
+                        <div class="md:w-1/3 bg-[#064e3b] p-8 text-white flex flex-col justify-center items-center text-center">
                             <i class="fa-solid fa-star-and-crescent text-6xl text-yellow-400 mb-6"></i>
                             <h3 class="text-2xl font-bold">Daily Insight</h3>
-                            <p class="mt-4 text-sm opacity-80 italic">Fresh wisdom generated daily by our ✨ AI educator.
-                            </p>
+                            <p class="mt-4 text-sm opacity-80 italic">Fresh wisdom generated daily by our ✨ AI educator.</p>
                         </div>
                         <div class="md:w-2/3 p-8 flex flex-col justify-between">
                             <div id="reflectionContent">
-                                <p class="text-gray-400 italic">Click the button below to generate today's spiritual
-                                    reflection...</p>
+                                <p class="text-gray-400 italic">Click the button below to generate today's spiritual reflection...</p>
                             </div>
-                            <div class="mt-8 flex flex-wrap gap-4">
-                                <button onclick="generateReflection()"
-                                    class="bg-[#064e3b] text-white py-3 px-6 rounded-xl font-bold hover:bg-emerald-800 transition flex items-center gap-2">
+                            <div class="mt-8 flex flex-col sm:flex-row gap-4">
+                                <button onclick="generateReflection()" class="bg-[#064e3b] text-white py-3 px-6 rounded-xl font-bold hover:bg-emerald-800 transition flex items-center justify-center gap-2 w-full sm:w-auto">
                                     <span id="reflectBtnText">✨ Get Reflection</span>
                                     <div id="reflectSpinner" class="spinner hidden"></div>
                                 </button>
-                                <button id="ttsBtn" onclick="playReflectionAudio()"
-                                    class="hidden border-2 border-[#064e3b] text-[#064e3b] py-3 px-6 rounded-xl font-bold hover:bg-emerald-50 transition flex items-center gap-2">
+                                <button id="ttsBtn" onclick="playReflectionAudio()" class="hidden border-2 border-[#064e3b] text-[#064e3b] py-3 px-6 rounded-xl font-bold hover:bg-emerald-50 transition flex items-center justify-center gap-2 w-full sm:w-auto">
                                     <i class="fa-solid fa-volume-high"></i> ✨ Listen
                                 </button>
                             </div>
@@ -337,185 +284,107 @@
                 </div>
             </section>
 
-            <!-- Stats Section -->
-            <section id="testimonials-section" class="bg-gray-100 py-16">
+            <section id="testimonials-section" class="bg-gray-100 py-16 px-4">
                 <div class="max-w-2xl mx-auto text-center">
-
                     <h2 class="text-2xl font-bold mb-8">What Our Students Say</h2>
-
                     <div class="relative overflow-hidden" id="testimonialWrapper">
-
-                        <!-- Slider Track -->
                         <div class="flex transition-transform duration-700 ease-in-out" id="testimonialTrack">
-
-                            <!-- Testimonial 1 -->
                             <div class="w-full flex-shrink-0 p-6">
-                                <!-- <img src="https://www.bing.com/th/id/OIP.IugVd90U_1Thy-JfwquUjAHaHa?w=122&h=128&c=8&rs=1&qlt=90&o=6&cb=defcachec1&pid=3.1&rm=2"
-                                    class="w-20 h-20 rounded-full mx-auto mb-4 object-cover"> -->
-                                <p class="italic text-gray-700">"This academy helped me understand Islam deeply.
-                                    Teachers are very sincere."</p>
-                                <h4 class="mt-3 font-semibold">- Abdullah</h4>
+                                <p class="italic text-gray-700">"Very supportive teachers and a positive learning environment"</p>
+                                <h4 class="mt-3 font-semibold">- Mohd.D.Salik</h4>
                             </div>
-
-                            <!-- Testimonial 2 -->
                             <div class="w-full flex-shrink-0 p-6">
-                                <!-- <img src="https://www.bing.com/th/id/OIP.IugVd90U_1Thy-JfwquUjAHaHa?w=122&h=128&c=8&rs=1&qlt=90&o=6&cb=defcachec1&pid=3.1&rm=2"
-                                    class="w-20 h-20 rounded-full mx-auto mb-4 object-cover"> -->
-                                <p class="italic text-gray-700">"Structured courses and easy explanations. Highly
-                                    recommended."</p>
-                                <h4 class="mt-3 font-semibold">- Ayesha</h4>
+                                <p class="italic text-gray-700">"Structured courses and easy explanations. Highly recommended."</p>
+                                <h4 class="mt-3 font-semibold">- Tuba Siddique </h4>
                             </div>
-
-                            <!-- Testimonial 3 -->
                             <div class="w-full flex-shrink-0 p-6">
-                                <!-- <img src="https://www.bing.com/th/id/OIP.IugVd90U_1Thy-JfwquUjAHaHa?w=122&h=128&c=8&rs=1&qlt=90&o=6&cb=defcachec1&pid=3.1&rm=2"
-                                    class="w-20 h-20 rounded-full mx-auto mb-4 object-cover"> -->
-                                <p class="italic text-gray-700">"My Tajweed improved a lot. JazakAllah Khair to the
-                                    academy."</p>
-                                <h4 class="mt-3 font-semibold">- Yusuf</h4>
+                                <p class="italic text-gray-700">"My Tajweed improved a lot. JazakAllah Khair to the academy."</p>
+                                <h4 class="mt-3 font-semibold">- Affan.x.10 </h4>
                             </div>
-
                         </div>
 
-                        <!-- Arrows -->
-                        <button id="prevBtn"
-                            class="absolute left-0 top-1/2 -translate-y-1/2 bg-white shadow px-3 py-2 rounded-full hover:bg-gray-200">
+                        <button id="prevBtn" class="absolute left-2 md:left-0 top-1/2 -translate-y-1/2 bg-white shadow px-3 py-2 rounded-full hover:bg-gray-200 focus:outline-none">
                             ◀
                         </button>
-
-                        <button id="nextBtn"
-                            class="absolute right-0 top-1/2 -translate-y-1/2 bg-white shadow px-3 py-2 rounded-full hover:bg-gray-200">
+                        <button id="nextBtn" class="absolute right-2 md:right-0 top-1/2 -translate-y-1/2 bg-white shadow px-3 py-2 rounded-full hover:bg-gray-200 focus:outline-none">
                             ▶
                         </button>
-
                     </div>
                 </div>
             </section>
 
         </div>
 
-        <!-- ABOUT VIEW -->
         <div id="about-view" class="hidden view-transition bg-white min-h-screen">
-
             <section class="py-16">
-                <div class="max-w-4xl mx-auto px-4">
-
-                    <!-- Page Title -->
-                    <h2 class="text-4xl font-bold text-center text-[#064e3b] mb-10">
+                <div class="max-w-4xl mx-auto px-4 sm:px-6">
+                    <h2 class="text-3xl md:text-4xl font-bold text-center text-[#064e3b] mb-10">
                         About Sayyed Online Qur'aan Academy
                     </h2>
 
-                    <!-- Founder -->
                     <div class="mb-12">
                         <h3 class="text-2xl font-bold text-[#064e3b] mb-3">About the Founder</h3>
-
                         <p class="text-gray-700 leading-relaxed">
-                            My name is <strong>Sayyed Muhammad Areeb</strong>, Founder of Sayyed Online Qur'aan Academy.
-                            I am a passionate and dedicated Quran teacher committed to spreading authentic Islamic
-                            knowledge.
-                            I am a <strong>Haafiz</strong>, <strong>'Aalim</strong>, and <strong>Faazil</strong>, and
-                            currently serving as an
-                            <strong>Islamic Researcher at Jamia Hamdard University</strong>.
+                            My name is <strong>Sayyed Muhammad Areeb</strong>, Founder of Sayyed Online Qur'aan Academy. I am a passionate and dedicated Quran teacher committed to spreading authentic Islamic knowledge. I am a <strong>Haafiz</strong>, <strong>'Aalim</strong>, and <strong>Faazil</strong>, and currently serving as an <strong>Islamic Researcher at Jamia Hamdard University</strong>.
                         </p>
-
                         <p class="text-gray-700 mt-3 leading-relaxed">
-                            With sincerity, patience, and responsibility, my aim is to create a respectful and
-                            motivating learning
-                            environment for students of all ages. My mission is to ensure that every student learns the
-                            Qur'aan correctly
-                            with Tajweed and develops a strong spiritual connection with it.
+                            With sincerity, patience, and responsibility, my aim is to create a respectful and motivating learning environment for students of all ages. My mission is to ensure that every student learns the Qur'aan correctly with Tajweed and develops a strong spiritual connection with it.
                         </p>
                     </div>
 
-
-                    <!-- Mission & Vision -->
-                    <div class="grid md:grid-cols-2 gap-6 mb-10">
-
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
                         <div class="bg-gray-50 p-6 rounded-xl shadow">
                             <h3 class="text-xl font-bold text-[#064e3b] mb-2">Our Mission</h3>
                             <p class="text-gray-700">
-                                To provide structured and accessible Quran education with proper pronunciation
-                                (Makharij),
-                                Tajweed rules, and understanding.
+                                To provide structured and accessible Quran education with proper pronunciation (Makharij), Tajweed rules, and understanding.
                             </p>
                         </div>
-
                         <div class="bg-gray-50 p-6 rounded-xl shadow">
                             <h3 class="text-xl font-bold text-[#064e3b] mb-2">Our Vision</h3>
                             <p class="text-gray-700">
-                                To build a generation that not only recites the Quran beautifully but also practices
-                                its teachings in everyday life.
+                                To build a generation that not only recites the Quran beautifully but also practices its teachings in everyday life.
                             </p>
                         </div>
-
                     </div>
 
-                    <!-- Courses -->
-                    <div class="mb-10">
-                        <h3 class="text-2xl font-bold text-[#064e3b] mb-4">Our Courses</h3>
-                        <ul class="space-y-2 text-gray-700">
-
-                            <li>📖 <strong>Noorani Qaida:</strong> For beginners to learn Arabic letters, pronunciation,
-                                and basic Tajweed rules.</li>
-                            <li>📖 <strong>Quran Reading with Tajweed:</strong> Step-by-step guidance to improve fluency
-                                and correct recitation.</li>
-                            <li>📖 <strong>Hifz Support Program:</strong> Memorization guidance with revision planning
-                                and progress tracking.</li>
-                            <li>📖 <strong>Basic Islamic Studies:</strong> Daily duas, Islamic manners, and essential
-                                teachings.</li>
-                            <li>📖 <strong>Namaz & Duas Training:</strong> Complete guidance on Salah with proper
-                                pronunciation and understanding.</li>
-
-                        </ul>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+                        <div>
+                            <h3 class="text-2xl font-bold text-[#064e3b] mb-4">Our Courses</h3>
+                            <ul class="space-y-2 text-gray-700">
+                                <li>📖 <strong>Noorani Qaida:</strong> For beginners.</li>
+                                <li>📖 <strong>Quran Reading with Tajweed:</strong> Step-by-step guidance.</li>
+                                <li>📖 <strong>Hifz Support Program:</strong> Memorization tracking.</li>
+                                <li>📖 <strong>Basic Islamic Studies:</strong> Daily duas & manners.</li>
+                                <li>📖 <strong>Namaz & Duas Training:</strong> Complete Salah guidance.</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-[#064e3b] mb-4">Our Teaching Method</h3>
+                            <ul class="list-disc ml-6 text-gray-700 space-y-1">
+                                <li>One-on-one and small group classes</li>
+                                <li>Friendly and disciplined environment</li>
+                                <li>Flexible class timings</li>
+                                <li>Regular progress assessments</li>
+                                <li>Special focus on children and beginners</li>
+                                <li>Female teacher option available</li>
+                            </ul>
+                        </div>
                     </div>
 
-                    <!-- Teaching Method -->
-                    <div class="mb-10">
-                        <h3 class="text-2xl font-bold text-[#064e3b] mb-4">Our Teaching Method</h3>
-                        <ul class="list-disc ml-6 text-gray-700 space-y-1">
-                            <li>One-on-one and small group classes</li>
-                            <li>Friendly and disciplined environment</li>
-                            <li>Flexible class timings</li>
-                            <li>Regular progress assessments</li>
-                            <li>Special focus on children and beginners</li>
-                            <li>Female teacher option available</li>
-                        </ul>
-                    </div>
-
-                    <!-- Why Choose Us -->
-                    <div class="mb-10">
-                        <h3 class="text-2xl font-bold text-[#064e3b] mb-4">Why Choose Us?</h3>
-                        <ul class="grid md:grid-cols-2 gap-2 text-gray-700">
-                            <li>✔ Qualified and dedicated teacher</li>
-                            <li>✔ Focus on Tajweed & Makharij</li>
-                            <li>✔ Affordable fee structure</li>
-                            <li>✔ Online classes worldwide</li>
-                            <li>✔ Safe and comfortable learning environment</li>
-                        </ul>
-                    </div>
-
-                    <!-- Admission -->
-                    <div class="bg-[#064e3b] text-white p-8 rounded-2xl text-center">
+                    <div class="bg-[#064e3b] text-white p-6 sm:p-8 rounded-2xl text-center">
                         <h3 class="text-2xl font-bold mb-3">Admissions Open</h3>
                         <p class="mb-4">We are currently accepting new students for online Quran classes.</p>
-
                         <p>📞 Call / WhatsApp: <strong>7830446880</strong></p>
                         <p>📧 Email: <strong>mohdareeb23@gmail.com</strong></p>
-                        <p>🌍 Online Classes – Flexible Timings</p>
+                        <p class="mt-2">🌍 Online Classes – Flexible Timings</p>
                     </div>
-
                 </div>
             </section>
-
         </div>
 
-
-
-        <!-- COURSE DETAIL VIEW -->
         <div id="course-view" class="hidden view-transition min-h-screen bg-white">
-            <div class="container mx-auto px-4 py-12">
-                <button onclick="showView('home')"
-                    class="mb-8 flex items-center text-[#064e3b] font-bold hover:underline">
+            <div class="container mx-auto px-4 py-12 max-w-4xl">
+                <button onclick="showView('home')" class="mb-8 flex items-center text-[#064e3b] font-bold hover:underline">
                     <i class="fa-solid fa-arrow-left mr-2"></i> Back to Home
                 </button>
                 <div id="course-content"></div>
@@ -523,17 +392,12 @@
         </div>
     </main>
 
-    <!-- ✨ FLOATING KNOWLEDGE ASSISTANT -->
     <div id="chat-container" class="fixed bottom-6 right-6 z-[60]">
-        <!-- Chat Bubble -->
-        <button id="chat-toggle" onclick="toggleChat()" class="ai-orb">
+        <button id="chat-toggle" onclick="toggleChat()" class="ai-orb focus:outline-none">
             <i class="fa-solid fa-moon"></i>
         </button>
 
-
-        <!-- Chat Window -->
-        <div id="chat-window"
-            class="hidden absolute bottom-20 right-0 w-[350px] md:w-[400px] bg-white rounded-3xl chat-shadow overflow-hidden border border-gray-100">
+        <div id="chat-window" class="hidden absolute bottom-20 right-0 w-[calc(100vw-3rem)] sm:w-[350px] md:w-[400px] bg-white rounded-3xl chat-shadow overflow-hidden border border-gray-100">
             <div class="bg-[#064e3b] p-4 text-white flex justify-between items-center">
                 <div class="flex items-center gap-3">
                     <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
@@ -544,7 +408,7 @@
                         <p class="text-[10px] opacity-70">✨ Powered by Gemini</p>
                     </div>
                 </div>
-                <button onclick="toggleChat()"><i class="fa-solid fa-times"></i></button>
+                <button onclick="toggleChat()" class="focus:outline-none"><i class="fa-solid fa-times text-xl"></i></button>
             </div>
             <div id="chat-messages" class="h-[350px] overflow-y-auto p-4 flex flex-col gap-3 text-sm bg-gray-50">
                 <div class="bg-emerald-100 self-start p-3 rounded-2xl rounded-tl-none max-w-[85%] text-gray-800">
@@ -552,10 +416,8 @@
                 </div>
             </div>
             <div class="p-4 bg-white border-t flex gap-2">
-                <input id="chatInput" type="text" placeholder="Ask a question..."
-                    class="flex-grow p-2 bg-gray-100 rounded-lg outline-none text-sm" onkeypress="handleChatKey(event)">
-                <button onclick="sendChatMessage()"
-                    class="bg-[#064e3b] text-white p-2 w-10 h-10 rounded-lg hover:bg-emerald-800 flex items-center justify-center">
+                <input id="chatInput" type="text" placeholder="Ask a question..." class="flex-grow p-2 bg-gray-100 rounded-lg outline-none text-sm w-full" onkeypress="handleChatKey(event)">
+                <button onclick="sendChatMessage()" class="bg-[#064e3b] text-white p-2 w-10 h-10 rounded-lg hover:bg-emerald-800 flex items-center justify-center focus:outline-none flex-shrink-0">
                     <i id="sendIcon" class="fa-solid fa-paper-plane"></i>
                     <div id="chatSpinner" class="spinner hidden !w-4 !h-4"></div>
                 </button>
@@ -563,55 +425,48 @@
         </div>
     </div>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-white">
-        <div class="max-w-3xl mx-auto px-4">
-
-            <h2 class="text-3xl font-bold text-center text-[#064e3b] mb-10">
-                Contact Us
-            </h2>
-
-            <form id="contactForm" class="bg-gray-50 p-8 rounded-2xl shadow space-y-5">
-
-                <input type="text" id="name" placeholder="Your Name" required class="w-full p-3 border rounded-lg">
-
-                <input type="email" id="email" placeholder="Your Email" required class="w-full p-3 border rounded-lg">
-
-                <input type="text" id="phone" placeholder="Phone Number" class="w-full p-3 border rounded-lg">
-
-                <textarea id="message" rows="5" placeholder="Write your query..." required
-                    class="w-full p-3 border rounded-lg"></textarea>
-
-                <button type="submit" class="w-full bg-[#064e3b] text-white py-3 rounded-lg font-bold">
+    <section id="contact" class="py-20 bg-white px-4">
+        <div class="max-w-3xl mx-auto">
+            <h2 class="text-3xl font-bold text-center text-[#064e3b] mb-10">Contact Us</h2>
+            <form id="contactForm" class="bg-gray-50 p-6 sm:p-8 rounded-2xl shadow space-y-5">
+                <input type="text" id="name" placeholder="Your Name" required class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#064e3b]">
+                <input type="email" id="email" placeholder="Your Email" required class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#064e3b]">
+                <input type="text" id="phone" placeholder="Phone Number" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#064e3b]">
+                <textarea id="message" rows="5" placeholder="Write your query..." required class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#064e3b]"></textarea>
+                <button type="submit" class="w-full bg-[#064e3b] text-white py-3 rounded-lg font-bold hover:bg-emerald-800 transition">
                     Send Message
                 </button>
-
             </form>
-
             <p id="successMsg" class="hidden text-green-600 mt-4 text-center font-semibold">
                 ✅ Your message has been sent successfully!
             </p>
-
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer id="footer" class="bg-gray-900 text-gray-400 py-12">
-        <div class="container mx-auto px-4 text-center">
+    <footer id="footer" class="bg-gray-900 text-gray-400 py-12 px-4">
+        <div class="container mx-auto text-center">
             <p>&copy; 2026 SAYYED ONLINE QUR'AAN ACADEMY. All Rights Reserved.</p>
             <div class="flex justify-center space-x-6 mt-6">
-                <a href="https://www.instagram.com/sayyed_online_quraan_academy" class="hover:text-yellow-500"><i
-                        class="fa-brands fa-instagram text-xl"></i></a>
-                <a href="https://wa.me/917830446880" class="hover:text-green-500"><i
-                        class="fa-brands fa-whatsapp text-xl"></i></a>
+                <a href="https://www.instagram.com/sayyed_online_quraan_academy" class="hover:text-yellow-500 transition"><i class="fa-brands fa-instagram text-2xl"></i></a>
+                <a href="https://wa.me/917830446880" class="hover:text-green-500 transition"><i class="fa-brands fa-whatsapp text-2xl"></i></a>
             </div>
         </div>
     </footer>
 
-
-
-
     <script>
+        // --- MOBILE MENU LOGIC ---
+        function toggleMenu() {
+            const menu = document.getElementById('nav-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        function closeMenu() {
+            const menu = document.getElementById('nav-menu');
+            if (!menu.classList.contains('hidden')) {
+                menu.classList.add('hidden');
+            }
+        }
+
         // --- GEMINI API CONFIG ---
         const apiKey = null; // Runtime provided
         const TEXT_MODEL = "gemini-2.5-flash-preview-09-2025";
@@ -694,59 +549,24 @@
             }
         }
 
-
         function playReflectionAudio() {
             if (!currentReflectionText) {
                 alert("Generate reflection first");
                 return;
             }
 
-            // Stop any previous speech
             speechSynthesis.cancel();
-
             const speech = new SpeechSynthesisUtterance(currentReflectionText);
+            speech.lang = "en-US";
+            speech.rate = 0.95;
+            speech.pitch = 1;
+            speech.volume = 1;
 
-            // Voice settings
-            speech.lang = "en-US";     // English voice
-            speech.rate = 0.95;        // Speed (0.5 slow → 1 normal → 1.2 fast)
-            speech.pitch = 1;          // Tone
-            speech.volume = 1;         // Volume
-
-            // Try to select best voice automatically
             const voices = speechSynthesis.getVoices();
-            const preferred =
-                voices.find(v => v.name.includes("Google") && v.lang.includes("en")) ||
-                voices.find(v => v.lang.includes("en"));
-
+            const preferred = voices.find(v => v.name.includes("Google") && v.lang.includes("en")) || voices.find(v => v.lang.includes("en"));
             if (preferred) speech.voice = preferred;
 
             speechSynthesis.speak(speech);
-        }
-
-
-
-
-        function pcmToWav(base64, sampleRate) {
-            const buffer = Uint8Array.from(atob(base64), c => c.charCodeAt(0)).buffer;
-            const view = new DataView(new ArrayBuffer(44 + buffer.byteLength));
-            const writeString = (offset, string) => {
-                for (let i = 0; i < string.length; i++) view.setUint8(offset + i, string.charCodeAt(i));
-            };
-            writeString(0, 'RIFF');
-            view.setUint32(4, 36 + buffer.byteLength, true);
-            writeString(8, 'WAVE');
-            writeString(12, 'fmt ');
-            view.setUint32(16, 16, true);
-            view.setUint16(20, 1, true);
-            view.setUint16(22, 1, true);
-            view.setUint32(24, sampleRate, true);
-            view.setUint32(28, sampleRate * 2, true);
-            view.setUint16(32, 2, true);
-            view.setUint16(34, 16, true);
-            writeString(36, 'data');
-            view.setUint32(40, buffer.byteLength, true);
-            new Uint8Array(view.buffer, 44).set(new Uint8Array(buffer));
-            return new Blob([view], { type: 'audio/wav' });
         }
 
         // --- FEATURE: KNOWLEDGE CHATBOT ---
@@ -754,6 +574,7 @@
             const win = document.getElementById('chat-window');
             win.classList.toggle('hidden');
         }
+
         const COURSE_LIST = [
             "Aalim / Aalimah: Full Islamic scholarship including Tafseer, Hadith, and Fiqh",
             "Faazil / Faazilah: Advanced Islamic specialization and research",
@@ -761,7 +582,6 @@
             "Arabic Language: Grammar, translation, and Qur'an understanding",
             "Tajweed: Correct Qur'an recitation and pronunciation rules",
             "Qur'an Reading: Reading, memorization (Hifz), and basic translation"
-
         ];
 
         async function sendChatMessage() {
@@ -779,19 +599,15 @@
 
             const system = `
                 You are the helpful AI Assistant of Sayyed Online Qur'aan Academy.
-
                 These are the available courses:
                 ${COURSE_LIST.map((c, i) => `${i + 1}. ${c}`).join("\n")}
-
                 You help users:
                 - Understand which course suits them
                 - Give brief info about courses
                 - Explain Islamic educational topics
                 - Be polite, respectful, and spiritual in tone
-
                 When listing courses, always use bullet points and clear formatting.
-                `;
-
+            `;
 
             try {
                 const response = await callGemini(msg, system);
@@ -811,7 +627,6 @@
                 ? 'bg-blue-600 text-white self-end p-3 rounded-2xl rounded-tr-none max-w-[85%]'
                 : 'bg-emerald-100 text-gray-800 self-start p-3 rounded-2xl rounded-tl-none max-w-[85%]';
 
-            // Convert newlines to breaks and simple markdown bullets to styled bullets
             const formatted = text
                 .replace(/\n/g, '<br>')
                 .replace(/^\* (.*?)(<br>|$)/gm, '• $1$2')
@@ -841,7 +656,6 @@
             document.getElementById('about-view').classList.toggle('hidden', v !== 'about');
             window.scrollTo(0, 0);
         }
-
 
         function openCourse(key) {
             const data = {
@@ -1117,27 +931,19 @@
         function scrollToElement(id) {
             const el = document.getElementById(id);
             if (!el) return;
-
-            const navbarOffset = 80; // adjust according to header height
+            const navbarOffset = 80;
             const y = el.getBoundingClientRect().top + window.pageYOffset - navbarOffset;
-
-            window.scrollTo({
-                top: y,
-                behavior: "smooth"
-            });
+            window.scrollTo({ top: y, behavior: "smooth" });
         }
 
-
-        // testimonials logic
+        // --- TESTIMONIALS LOGIC ---
         const track = document.getElementById("testimonialTrack");
         const wrapper = document.getElementById("testimonialWrapper");
         const testimonialSlides = document.querySelectorAll("#testimonialTrack > div");
-
         let index = 0;
         let interval;
         const speed = 3500;
 
-        // Clone first slide for smooth infinite loop
         const firstClone = testimonialSlides[0].cloneNode(true);
         track.appendChild(firstClone);
 
@@ -1149,7 +955,6 @@
             index++;
             track.style.transition = "transform 0.7s ease-in-out";
             updateSlide();
-
             if (index === testimonialSlides.length) {
                 setTimeout(() => {
                     track.style.transition = "none";
@@ -1166,30 +971,16 @@
             updateSlide();
         }
 
-        // Auto slide
-        function startAutoSlide() {
-            interval = setInterval(nextSlide, speed);
-        }
+        function startAutoSlide() { interval = setInterval(nextSlide, speed); }
+        function stopAutoSlide() { clearInterval(interval); }
 
-        function stopAutoSlide() {
-            clearInterval(interval);
-        }
-
-        // Pause on hover
         wrapper.addEventListener("mouseenter", stopAutoSlide);
         wrapper.addEventListener("mouseleave", startAutoSlide);
-
-        // Arrows
         document.getElementById("nextBtn").onclick = nextSlide;
         document.getElementById("prevBtn").onclick = prevSlide;
 
-        // Swipe (mobile)
         let startX = 0;
-
-        wrapper.addEventListener("touchstart", e => {
-            startX = e.touches[0].clientX;
-        });
-
+        wrapper.addEventListener("touchstart", e => { startX = e.touches[0].clientX; });
         wrapper.addEventListener("touchend", e => {
             let endX = e.changedTouches[0].clientX;
             if (startX - endX > 50) nextSlide();
@@ -1197,34 +988,25 @@
         });
 
         startAutoSlide();
+
+        // --- CONTACT FORM LOGIC ---
         document.getElementById("contactForm").addEventListener("submit", async function (e) {
             e.preventDefault();
-
             const scriptURL = "https://script.google.com/macros/s/AKfycbzOjq41Au-yQxz8tHM4kdUnaV3dGxOR76x1Y2byzqfotHdjtqHJRXVLjtYQV3GHZx4MHg/exec";
-
             const data = {
                 name: document.getElementById("name").value,
                 email: document.getElementById("email").value,
                 phone: document.getElementById("phone").value,
                 message: document.getElementById("message").value
             };
-
             try {
-                await fetch(scriptURL, {
-                    method: "POST",
-                    body: JSON.stringify(data)
-                });
-
+                await fetch(scriptURL, { method: "POST", body: JSON.stringify(data) });
                 document.getElementById("contactForm").reset();
                 document.getElementById("successMsg").classList.remove("hidden");
-
             } catch (err) {
                 alert("Error sending message. Try again.");
             }
         });
-
     </script>
-
 </body>
-
 </html>
