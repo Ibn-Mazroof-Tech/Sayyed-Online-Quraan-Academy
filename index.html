@@ -1129,11 +1129,10 @@
                 alert("Error sending message. Try again.");
             }
         });
-        // --- ADMISSION FORM LOGIC ---
-document.getElementById("admissionForm").addEventListener("submit", async function (e) {
+       document.getElementById("admissionForm").addEventListener("submit", async function (e) {
     e.preventDefault();
 
-    const scriptURL = "https://script.google.com/macros/s/AKfycbzkGOWWTUcHuS7qlqyCFjPkkMgKJYyCLclG5byhCSY4JFl-79XxRMZJA0KqlB68saUl/exec";
+    const scriptURL = "https://script.google.com/macros/s/AKfycbzfHqCnzf6hnedEds5VQlqWYxUnTj2TGZbgPaKSdi8dlzsKtLQgEGR3nToAPIWc3OUrDQ/exec";
 
     const data = {
         name: document.getElementById("adm_name").value,
@@ -1146,18 +1145,24 @@ document.getElementById("admissionForm").addEventListener("submit", async functi
     };
 
     try {
-        await fetch(scriptURL, {
+        const res = await fetch(scriptURL, {
             method: "POST",
-            body: JSON.stringify(data)
+            body: JSON.stringify(data),
+            headers: { "Content-Type": "application/json" }
         });
+
+        const text = await res.text();
+        console.log("Server response:", text);
 
         document.getElementById("admissionForm").reset();
         document.getElementById("admissionSuccess").classList.remove("hidden");
 
     } catch (err) {
-        alert("Error submitting admission. Try again.");
+        console.error(err);
+        alert("Error submitting admission. Check script deployment.");
     }
 });
+
 
     </script>
 </body>
