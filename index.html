@@ -1148,7 +1148,7 @@
 
     // Razorpay Payment Options
     const options = {
-        key: "rzp_live_SI6CL3vQGlSNAy",   // rzp_test_xxxxx
+        key: "rzp_test_SI0LwKAUBwk9wu",   // rzp_test_xxxxx
         amount: 10000,             // ₹100 (amount in paise)
         currency: "INR",
         name: "Sayyed Online Qur'an Academy",
@@ -1156,7 +1156,8 @@
         
         handler: async function (response) {
 
-    const scriptURL = process.env.GOOGLE_SCRIPT_URL || "https://script.google.com/macros/s/AKfycbx7GE-kCQevOAmu21m_FqHcLtt-TKKjpsWBrsDzzNCaHyAOmy7EpmP06wgpSHKDZbYP/exec";
+    const scriptURL = "https://script.google.com/macros/s/AKfycbx7GE-kCQevOAmu21m_FqHcLtt-TKKjpsWBrsDzzNCaHyAOmy7EpmP06wgpSHKDZbYP/exec";
+
 
 
     const dataToSend = {
