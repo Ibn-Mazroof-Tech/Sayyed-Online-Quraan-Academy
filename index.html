@@ -1129,30 +1129,26 @@
                 alert("Error sending message. Try again.");
             }
         });
-       document.getElementById("admissionForm").addEventListener("submit", async function (e) {
+       
+        document.getElementById("admissionForm").addEventListener("submit", async function (e) {
     e.preventDefault();
 
     const scriptURL = "https://script.google.com/macros/s/AKfycby2XYvKQ28GusuEyH_DW2N-PuPZ53r0YDC2yxW6P3HFNhqmPWySbaHcKL6N2U-Hrudx/exec";
 
-    const data = {
-        name: document.getElementById("adm_name").value,
-        father: document.getElementById("adm_father").value,
-        phone: document.getElementById("adm_phone").value,
-        email: document.getElementById("adm_email").value,
-        course: document.getElementById("adm_course").value,
-        address: document.getElementById("adm_address").value,
-        payment: "Pending"
-    };
+    const formData = new FormData();
+    formData.append("name", document.getElementById("adm_name").value);
+    formData.append("father", document.getElementById("adm_father").value);
+    formData.append("phone", document.getElementById("adm_phone").value);
+    formData.append("email", document.getElementById("adm_email").value);
+    formData.append("course", document.getElementById("adm_course").value);
+    formData.append("address", document.getElementById("adm_address").value);
+    formData.append("payment", "Pending");
 
     try {
-        const res = await fetch(scriptURL, {
+        await fetch(scriptURL, {
             method: "POST",
-            body: JSON.stringify(data),
-            headers: { "Content-Type": "application/json" }
+            body: formData
         });
-
-        const text = await res.text();
-        console.log("Server response:", text);
 
         document.getElementById("admissionForm").reset();
         document.getElementById("admissionSuccess").classList.remove("hidden");
@@ -1162,6 +1158,7 @@
         alert("Error submitting admission. Check script deployment.");
     }
 });
+
 
 
     </script>
