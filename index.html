@@ -1155,32 +1155,43 @@
         description: "Admission Fee",
         
         handler: async function (response) {
-            // Payment success — send data + payment ID to Google Sheet
-            const scriptURL = "https://script.google.com/macros/s/AKfycby-Hs9gPEaoLkhFM6Dj7O8-EMsutkmCiexjW3Az2HqbLbU-dETq71ogkPXoIOHKUwt_/exec";
 
-            const dataToSend = {
-                ...formData,
-                payment: "Paid",
-                payment_id: response.razorpay_payment_id
-            };
-
-            try {
-                await fetch(scriptURL, {
-    method: "POST",
-    body: JSON.stringify(dataToSend),
-    headers: { "Content-Type": "application/json" },
-    mode: "no-cors"
-});
+    const scriptURL = process.env.GOOGLE_SCRIPT_URL || "https://script.google.com/macros/s/AKfycbx7GE-kCQevOAmu21m_FqHcLtt-TKKjpsWBrsDzzNCaHyAOmy7EpmP06wgpSHKDZbYP/exec";
 
 
-                alert("✅ Admission successful & Payment received!");
-                document.getElementById("admissionForm").reset();
-                document.getElementById("admissionSuccess").classList.remove("hidden");
+    const dataToSend = {
+        name: formData.name,
+        father: formData.father,
+        phone: formData.phone,
+        email: formData.email,
+        course: formData.course,
+        address: formData.address,
+        payment: "Paid",
+        payment_id: response.razorpay_payment_id
+    };
 
-            } catch (err) {
-                alert("Payment done but error saving data.");
-            }
-        },
+    try {
+        const res = await fetch(scriptURL, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(dataToSend)
+        });
+
+        const result = await res.json();
+
+        if (result.result === "success") {
+            alert("✅ Admission successful & Payment saved!");
+            document.getElementById("admissionForm").reset();
+            document.getElementById("admissionSuccess").classList.remove("hidden");
+        } else {
+            alert("Payment done but sheet error: " + result.error);
+        }
+
+    } catch (err) {
+        alert("Payment done but network/script error.");
+        console.error(err);
+    }
+},
 
         prefill: {
             name: formData.name,
