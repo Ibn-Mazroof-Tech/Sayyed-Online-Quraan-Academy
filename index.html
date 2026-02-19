@@ -1166,10 +1166,12 @@
 
             try {
                 await fetch(scriptURL, {
-                    method: "POST",
-                    body: JSON.stringify(dataToSend),
-                    headers: { "Content-Type": "application/json" }
-                });
+    method: "POST",
+    body: JSON.stringify(dataToSend),
+    headers: { "Content-Type": "application/json" },
+    mode: "no-cors"
+});
+
 
                 alert("✅ Admission successful & Payment received!");
                 document.getElementById("admissionForm").reset();
