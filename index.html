@@ -495,51 +495,62 @@
     </div>
 
     <section id="admission-section" class="py-20 bg-gray-50 px-4">
-  <div class="max-w-3xl mx-auto">
+  <div class="max-w-5xl mx-auto grid md:grid-cols-5 gap-8 items-start">
+    <div class="md:col-span-2 bg-gradient-to-b from-[#064e3b] to-emerald-700 text-white p-8 rounded-2xl shadow-lg">
+      <p class="text-yellow-300 uppercase tracking-widest text-xs font-semibold mb-3">Secure Payment</p>
+      <h2 class="text-3xl font-bold leading-tight">Online Admission Form</h2>
+      <p class="mt-4 text-sm text-emerald-100">Complete your application and pay the one-time registration fee through Razorpay's secure gateway.</p>
+      <div class="mt-8 bg-white/10 border border-white/20 rounded-xl p-5">
+        <p class="text-xs uppercase tracking-wider text-emerald-100">Admission Fee</p>
+        <p class="text-3xl font-bold mt-1">₹100</p>
+        <ul class="mt-4 text-sm space-y-2 text-emerald-50">
+          <li><i class="fa-solid fa-shield-halved mr-2"></i>Order ID generated on server</li>
+          <li><i class="fa-solid fa-lock mr-2"></i>Signature verified before saving</li>
+          <li><i class="fa-solid fa-receipt mr-2"></i>Instant confirmation after payment</li>
+        </ul>
+      </div>
+    </div>
 
-    <h2 class="text-3xl font-bold text-center text-[#064e3b] mb-10">
-      Online Admission Form
-    </h2>
+    <div class="md:col-span-3">
+      <form id="admissionForm" class="bg-white p-6 sm:p-8 rounded-2xl shadow space-y-5 border border-gray-100">
+        <input type="text" id="adm_name" placeholder="Full Name" required maxlength="80" autocomplete="name"
+          class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-[#064e3b]">
 
-    <form id="admissionForm" class="bg-white p-6 sm:p-8 rounded-2xl shadow space-y-5">
+        <input type="text" id="adm_father" placeholder="Father Name" required maxlength="80" autocomplete="off"
+          class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-[#064e3b]">
 
-      <input type="text" id="adm_name" placeholder="Full Name" required
-        class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-[#064e3b]">
+        <input type="tel" id="adm_phone" placeholder="Phone Number" required maxlength="15" pattern="[0-9]{10,15}" autocomplete="tel"
+          class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-[#064e3b]">
 
-      <input type="text" id="adm_father" placeholder="Father Name" required
-        class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-[#064e3b]">
+        <input type="email" id="adm_email" placeholder="Email Address" required maxlength="120" autocomplete="email"
+          class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-[#064e3b]">
 
-      <input type="tel" id="adm_phone" placeholder="Phone Number" required
-        class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-[#064e3b]">
+        <select id="adm_course" required
+          class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-[#064e3b]">
+          <option value="">Select Course</option>
+          <option>'Aalim / 'Aalimah</option>
+          <option>Faazil / Faazilah</option>
+          <option>Islamic History</option>
+          <option>Arabic Language</option>
+          <option>Tajweed</option>
+          <option>Qur'an Reading</option>
+        </select>
 
-      <input type="email" id="adm_email" placeholder="Email Address" required
-        class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-[#064e3b]">
+        <textarea id="adm_address" rows="3" placeholder="Full Address" required maxlength="200"
+          class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-[#064e3b]"></textarea>
 
-      <select id="adm_course" required
-        class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-[#064e3b]">
-        <option value="">Select Course</option>
-        <option>'Aalim / 'Aalimah</option>
-        <option>Faazil / Faazilah</option>
-        <option>Islamic History</option>
-        <option>Arabic Language</option>
-        <option>Tajweed</option>
-        <option>Qur'an Reading</option>
-      </select>
+        <button id="admissionSubmitBtn" type="submit"
+          class="w-full bg-[#064e3b] text-white py-3 rounded-lg font-bold hover:bg-emerald-800 transition flex justify-center items-center gap-2">
+          <span id="admissionBtnText">Continue to Secure Payment</span>
+          <div id="admissionSpinner" class="spinner hidden"></div>
+        </button>
+      </form>
 
-      <textarea id="adm_address" rows="3" placeholder="Full Address" required
-        class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-[#064e3b]"></textarea>
-
-      <button type="submit"
-        class="w-full bg-[#064e3b] text-white py-3 rounded-lg font-bold hover:bg-emerald-800 transition">
-        Submit Admission
-      </button>
-
-    </form>
-
-    <p id="admissionSuccess" class="hidden text-green-600 mt-4 text-center font-semibold">
-      ✅ Admission submitted successfully!
-    </p>
-
+      <p id="admissionSuccess" class="hidden text-green-600 mt-4 text-center font-semibold">
+        ✅ Admission submitted successfully!
+      </p>
+      <p id="admissionStatus" class="hidden mt-3 text-center text-sm font-medium"></p>
+    </div>
   </div>
 </section>
 
@@ -1132,82 +1143,131 @@
                 alert("Error sending message. Try again.");
             }
         });
-    //    Admission Form Logic
-        document.getElementById("admissionForm").addEventListener("submit", async function (e) {
-    e.preventDefault();
+    // --- Admission + Razorpay Logic ---
+        const admissionForm = document.getElementById("admissionForm");
+        const admissionStatus = document.getElementById("admissionStatus");
+        const admissionBtnText = document.getElementById("admissionBtnText");
+        const admissionSpinner = document.getElementById("admissionSpinner");
+        const admissionSubmitBtn = document.getElementById("admissionSubmitBtn");
+        const ADMISSION_AMOUNT_PAISE = 10000;
 
-    // Collect form data
-    const formData = {
-        name: document.getElementById("adm_name").value,
-        father: document.getElementById("adm_father").value,
-        phone: document.getElementById("adm_phone").value,
-        email: document.getElementById("adm_email").value,
-        course: document.getElementById("adm_course").value,
-        address: document.getElementById("adm_address").value
-    };
+        function setAdmissionLoading(isLoading, label = "Continue to Secure Payment") {
+            admissionSubmitBtn.disabled = isLoading;
+            admissionSubmitBtn.classList.toggle("opacity-70", isLoading);
+            admissionBtnText.textContent = label;
+            admissionSpinner.classList.toggle("hidden", !isLoading);
+        }
 
-    // Razorpay Payment Options
-    const options = {
-        key: "rzp_test_SI0LwKAUBwk9wu",   // rzp_test_xxxxx
-        amount: 10000,             // ₹100 (amount in paise)
-        currency: "INR",
-        name: "Sayyed Online Qur'an Academy",
-        description: "Admission Fee",
-        
-        handler: async function (response) {
+        function setAdmissionStatus(message, type = "info") {
+            admissionStatus.classList.remove("hidden", "text-red-600", "text-green-600", "text-[#064e3b]");
+            admissionStatus.classList.add(type === "error" ? "text-red-600" : type === "success" ? "text-green-600" : "text-[#064e3b]");
+            admissionStatus.textContent = message;
+        }
 
-    const scriptURL = "https://script.google.com/macros/s/AKfycbw8yzg_4Xec8dAEo-_vJf6O1VMVxX2lYcJe4oRvNW_4bsVDOIwO0Ic_3s1TkdwFnFbw/exec";
+        function sanitizeFormValue(value) {
+            return String(value || "").trim().replace(/\s+/g, " ");
+        }
 
-            
+        admissionForm.addEventListener("submit", async function (e) {
+            e.preventDefault();
+            document.getElementById("admissionSuccess").classList.add("hidden");
 
-    const dataToSend = {
-        name: formData.name,
-        father: formData.father,
-        phone: formData.phone,
-        email: formData.email,
-        course: formData.course,
-        address: formData.address,
-        payment: "Paid",
-        payment_id: response.razorpay_payment_id
-    };
+            const formData = {
+                name: sanitizeFormValue(document.getElementById("adm_name").value),
+                father: sanitizeFormValue(document.getElementById("adm_father").value),
+                phone: sanitizeFormValue(document.getElementById("adm_phone").value).replace(/\D/g, ""),
+                email: sanitizeFormValue(document.getElementById("adm_email").value).toLowerCase(),
+                course: sanitizeFormValue(document.getElementById("adm_course").value),
+                address: sanitizeFormValue(document.getElementById("adm_address").value)
+            };
 
-    try {
-        const res = await fetch(scriptURL, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(dataToSend)
+            if (formData.phone.length < 10 || formData.phone.length > 15) {
+                setAdmissionStatus("Please enter a valid phone number.", "error");
+                return;
+            }
+
+            setAdmissionLoading(true, "Creating secure order...");
+            setAdmissionStatus("Preparing your encrypted Razorpay checkout...", "info");
+
+            try {
+                const orderRes = await fetch("/api/create-order", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ amount: ADMISSION_AMOUNT_PAISE })
+                });
+
+                const orderPayload = await orderRes.json();
+                if (!orderRes.ok || !orderPayload?.order?.id || !orderPayload?.key) {
+                    throw new Error(orderPayload?.message || "Unable to create payment order");
+                }
+
+                const options = {
+                    key: orderPayload.key,
+                    amount: orderPayload.order.amount,
+                    currency: orderPayload.order.currency,
+                    order_id: orderPayload.order.id,
+                    name: "Sayyed Online Qur'an Academy",
+                    description: "Admission Fee",
+                    image: "https://img.icons8.com/color/96/000000/mosque.png",
+                    handler: async function (response) {
+                        setAdmissionLoading(true, "Verifying payment...");
+                        setAdmissionStatus("Payment completed. Verifying signature on server...", "info");
+
+                        const verifyRes = await fetch("/api/verify-payment", {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify({
+                                payment_id: response.razorpay_payment_id,
+                                order_id: response.razorpay_order_id,
+                                signature: response.razorpay_signature,
+                                formData
+                            })
+                        });
+
+                        const verifyPayload = await verifyRes.json();
+                        if (!verifyRes.ok || !verifyPayload.success) {
+                            throw new Error(verifyPayload?.message || "Payment verification failed");
+                        }
+
+                        admissionForm.reset();
+                        document.getElementById("admissionSuccess").classList.remove("hidden");
+                        setAdmissionStatus("Admission confirmed and receipt recorded successfully.", "success");
+                    },
+                    modal: {
+                        ondismiss: function () {
+                            setAdmissionStatus("Payment was cancelled. Your form details are still available.", "error");
+                            setAdmissionLoading(false);
+                        }
+                    },
+                    prefill: {
+                        name: formData.name,
+                        email: formData.email,
+                        contact: formData.phone
+                    },
+                    notes: {
+                        course: formData.course
+                    },
+                    theme: {
+                        color: "#064e3b"
+                    }
+                };
+
+                const rzp = new Razorpay(options);
+                rzp.on("payment.failed", function (failureResponse) {
+                    const reason = failureResponse?.error?.description || "Payment failed. Please try again.";
+                    setAdmissionStatus(reason, "error");
+                    setAdmissionLoading(false);
+                });
+
+                setAdmissionLoading(false);
+                setAdmissionStatus("Order ready. Complete payment in the secure window.", "info");
+                rzp.open();
+            } catch (error) {
+                setAdmissionStatus(error.message || "Unable to start payment right now.", "error");
+            } finally {
+                setAdmissionLoading(false);
+            }
         });
-
-        const result = await res.json();
-
-        if (result.result === "success") {
-            alert("✅ Admission successful & Payment saved!");
-            document.getElementById("admissionForm").reset();
-            document.getElementById("admissionSuccess").classList.remove("hidden");
-        } else {
-            alert("Payment done but sheet error: " + result.error);
-        }
-
-    } catch (err) {
-        alert("Payment done but network/script error.");
-        console.error(err);
-    }
-},
-
-        prefill: {
-            name: formData.name,
-            email: formData.email,
-            contact: formData.phone
-        },
-
-        theme: {
-            color: "#064e3b"
-        }
-    };
-
-    const rzp = new Razorpay(options);
-    rzp.open();
-});
 
 
 
