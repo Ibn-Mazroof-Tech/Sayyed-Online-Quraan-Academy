@@ -115,7 +115,7 @@
             scroll-behavior: smooth;
         }
     </style>
-    
+
 </head>
 
 <body class="bg-gray-50 text-gray-800">
@@ -495,64 +495,71 @@
     </div>
 
     <section id="admission-section" class="py-20 bg-gray-50 px-4">
-  <div class="max-w-5xl mx-auto grid md:grid-cols-5 gap-8 items-start">
-    <div class="md:col-span-2 bg-gradient-to-b from-[#064e3b] to-emerald-700 text-white p-8 rounded-2xl shadow-lg">
-      <p class="text-yellow-300 uppercase tracking-widest text-xs font-semibold mb-3">Secure Payment</p>
-      <h2 class="text-3xl font-bold leading-tight">Online Admission Form</h2>
-      <p class="mt-4 text-sm text-emerald-100">Complete your application and pay the one-time registration fee through Razorpay's secure gateway.</p>
-      <div class="mt-8 bg-white/10 border border-white/20 rounded-xl p-5">
-        <p class="text-xs uppercase tracking-wider text-emerald-100">Admission Fee</p>
-        <p class="text-3xl font-bold mt-1">₹100</p>
-        <ul class="mt-4 text-sm space-y-2 text-emerald-50">
-          <li><i class="fa-solid fa-shield-halved mr-2"></i>Order ID generated on server</li>
-          <li><i class="fa-solid fa-lock mr-2"></i>Signature verified before saving</li>
-          <li><i class="fa-solid fa-receipt mr-2"></i>Instant confirmation after payment</li>
-        </ul>
-      </div>
-    </div>
+        <div class="max-w-5xl mx-auto grid md:grid-cols-5 gap-8 items-start">
+            <div
+                class="md:col-span-2 bg-gradient-to-b from-[#064e3b] to-emerald-700 text-white p-8 rounded-2xl shadow-lg">
+                <p class="text-yellow-300 uppercase tracking-widest text-xs font-semibold mb-3">Secure Payment</p>
+                <h2 class="text-3xl font-bold leading-tight">Online Admission Form</h2>
+                <p class="mt-4 text-sm text-emerald-100">Complete your application and pay the one-time registration fee
+                    through Razorpay's secure gateway.</p>
+                <div class="mt-8 bg-white/10 border border-white/20 rounded-xl p-5">
+                    <p class="text-xs uppercase tracking-wider text-emerald-100">Admission Fee</p>
+                    <p class="text-3xl font-bold mt-1">₹100</p>
+                    <ul class="mt-4 text-sm space-y-2 text-emerald-50">
+                        <li><i class="fa-solid fa-shield-halved mr-2"></i>Order ID generated on server</li>
+                        <li><i class="fa-solid fa-lock mr-2"></i>Signature verified before saving</li>
+                        <li><i class="fa-solid fa-receipt mr-2"></i>Instant confirmation after payment</li>
+                    </ul>
+                </div>
+            </div>
 
-    <div class="md:col-span-3">
-      <form id="admissionForm" class="bg-white p-6 sm:p-8 rounded-2xl shadow space-y-5 border border-gray-100">
-        <input type="text" id="adm_name" placeholder="Full Name" required maxlength="80" autocomplete="name"
-          class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-[#064e3b]">
+            <div class="md:col-span-3">
+                <form id="admissionForm"
+                    class="bg-white p-6 sm:p-8 rounded-2xl shadow space-y-5 border border-gray-100">
+                    <input type="text" id="adm_name" placeholder="Full Name" required maxlength="80" autocomplete="name"
+                        class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-[#064e3b]">
 
-        <input type="text" id="adm_father" placeholder="Father Name" required maxlength="80" autocomplete="off"
-          class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-[#064e3b]">
+                    <input type="text" id="adm_father" placeholder="Father Name" required maxlength="80"
+                        autocomplete="off" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-[#064e3b]">
 
-        <input type="tel" id="adm_phone" placeholder="Phone Number" required maxlength="15" pattern="[0-9]{10,15}" autocomplete="tel"
-          class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-[#064e3b]">
+                    <input type="tel" id="adm_phone" placeholder="Phone Number" required maxlength="15"
+                        pattern="[0-9]{10,15}" autocomplete="tel"
+                        class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-[#064e3b]">
 
-        <input type="email" id="adm_email" placeholder="Email Address" required maxlength="120" autocomplete="email"
-          class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-[#064e3b]">
+                    <input type="email" id="adm_email" placeholder="Email Address" required maxlength="120"
+                        autocomplete="email" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-[#064e3b]">
 
-        <select id="adm_course" required
-          class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-[#064e3b]">
-          <option value="">Select Course</option>
-          <option>'Aalim / 'Aalimah</option>
-          <option>Faazil / Faazilah</option>
-          <option>Islamic History</option>
-          <option>Arabic Language</option>
-          <option>Tajweed</option>
-          <option>Qur'an Reading</option>
-        </select>
+                    <select id="adm_course" required
+                        class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-[#064e3b]">
+                        <option value="">Select Course</option>
+                        <option>'Aalim / 'Aalimah</option>
+                        <option>Faazil / Faazilah</option>
+                        <option>Islamic History</option>
+                        <option>Arabic Language</option>
+                        <option>Tajweed</option>
+                        <option>Qur'an Reading</option>
+                    </select>
 
-        <textarea id="adm_address" rows="3" placeholder="Full Address" required maxlength="200"
-          class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-[#064e3b]"></textarea>
+                    <textarea id="adm_address" rows="3" placeholder="Full Address" required maxlength="200"
+                        class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-[#064e3b]"></textarea>
 
-        <button id="admissionSubmitBtn" type="submit"
-          class="w-full bg-[#064e3b] text-white py-3 rounded-lg font-bold hover:bg-emerald-800 transition flex justify-center items-center gap-2">
-          <span id="admissionBtnText">Continue to Secure Payment</span>
-          <div id="admissionSpinner" class="spinner hidden"></div>
-        </button>
-      </form>
+                    <button id="admissionSubmitBtn" type="submit"
+                        class="w-full bg-[#064e3b] text-white py-3 rounded-lg font-bold hover:bg-emerald-800 transition flex justify-center items-center gap-2">
+                        <span id="admissionBtnText">Continue to Secure Payment</span>
+                        <div id="admissionSpinner" class="spinner hidden"></div>
+                    </button>
+                </form>
 
-      <p id="admissionSuccess" class="hidden text-green-600 mt-4 text-center font-semibold">
-        ✅ Admission submitted successfully!
-      </p>
-      <p id="admissionStatus" class="hidden mt-3 text-center text-sm font-medium"></p>
-    </div>
-  </div>
-</section>
+                <p id="admissionSuccess" class="hidden text-green-600 mt-4 text-center font-semibold">
+                    ✅ Admission submitted successfully!
+                </p>
+                <p id="admissionStatus" class="hidden mt-3 text-center text-sm font-medium"></p>
+                <div id="receiptBox"
+                    class="hidden mt-4 bg-emerald-50 border border-emerald-200 rounded-xl p-4 text-sm text-gray-800">
+                </div>
+            </div>
+        </div>
+    </section>
 
     <section id="contact" class="py-20 bg-white px-4">
         <div class="max-w-3xl mx-auto">
@@ -1143,7 +1150,7 @@
                 alert("Error sending message. Try again.");
             }
         });
-    // --- Admission + Razorpay Logic ---
+        // --- Admission + Razorpay Logic ---
         const admissionForm = document.getElementById("admissionForm");
         const admissionStatus = document.getElementById("admissionStatus");
         const admissionBtnText = document.getElementById("admissionBtnText");
@@ -1168,7 +1175,7 @@
             return String(value || "").trim().replace(/\s+/g, " ");
         }
 
-     admissionForm.addEventListener("submit", async function (e) {
+        admissionForm.addEventListener("submit", async function (e) {
             e.preventDefault();
             document.getElementById("admissionSuccess").classList.add("hidden");
 
@@ -1181,15 +1188,15 @@
                 address: sanitizeFormValue(document.getElementById("adm_address").value)
             };
 
-        if (formData.phone.length < 10 || formData.phone.length > 15) {
+            if (formData.phone.length < 10 || formData.phone.length > 15) {
                 setAdmissionStatus("Please enter a valid phone number.", "error");
                 return;
             }
 
-        setAdmissionLoading(true, "Creating secure order...");
+            setAdmissionLoading(true, "Creating secure order...");
             setAdmissionStatus("Preparing your encrypted Razorpay checkout...", "info");
 
-    try {
+            try {
                 const orderRes = await fetch("/api/create-order", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
@@ -1230,8 +1237,28 @@
                         }
 
                         admissionForm.reset();
+                        setAdmissionLoading(false);
+
+                        const paymentId = response.razorpay_payment_id;
+                        const orderId = response.razorpay_order_id;
+                        const now = new Date().toLocaleString();
+
                         document.getElementById("admissionSuccess").classList.remove("hidden");
-                        setAdmissionStatus("Admission confirmed and receipt recorded successfully.", "success");
+
+                        setAdmissionStatus("Admission confirmed and payment received successfully.", "success");
+
+                        const receiptBox = document.getElementById("receiptBox");
+                        receiptBox.classList.remove("hidden");
+                        receiptBox.innerHTML = `
+  <h3 class="font-bold text-emerald-700 mb-2">Payment Receipt</h3>
+  <p><b>Name:</b> ${formData.name}</p>
+  <p><b>Course:</b> ${formData.course}</p>
+  <p><b>Amount:</b> ₹100</p>
+  <p><b>Payment ID:</b> ${paymentId}</p>
+  <p><b>Order ID:</b> ${orderId}</p>
+  <p><b>Date:</b> ${now}</p>
+`;
+
                     },
                     modal: {
                         ondismiss: function () {
