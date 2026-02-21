@@ -8,7 +8,7 @@ export default async function handler(req, res) {
   }
 
   // 🔒 FIXED AMOUNT (₹100)
-  const FIXED_AMOUNT = 100; // in paise
+  const FIXED_AMOUNT = 10000; // in paise
 
   try {
     const auth = Buffer.from(
