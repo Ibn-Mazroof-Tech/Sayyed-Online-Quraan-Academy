@@ -1232,32 +1232,35 @@
                         });
 
                         const verifyPayload = await verifyRes.json();
-                        if (!verifyRes.ok || !verifyPayload.success) {
-                            throw new Error(verifyPayload?.message || "Payment verification failed");
-                        }
+if (!verifyRes.ok || !verifyPayload.success) {
+    throw new Error(verifyPayload?.message || "Payment verification failed");
+}
 
-                        admissionForm.reset();
-                        setAdmissionLoading(false);
+setAdmissionLoading(false);
 
-                        const paymentId = response.razorpay_payment_id;
-                        const orderId = response.razorpay_order_id;
-                        const now = new Date().toLocaleString();
+admissionForm.reset();
 
-                        document.getElementById("admissionSuccess").classList.remove("hidden");
+const paymentId = response.razorpay_payment_id;
+const orderId = response.razorpay_order_id;
+const now = new Date().toLocaleString();
 
-                        setAdmissionStatus("Admission confirmed and payment received successfully.", "success");
+document.getElementById("admissionSuccess").classList.remove("hidden");
 
-                        const receiptBox = document.getElementById("receiptBox");
-                        receiptBox.classList.remove("hidden");
-                        receiptBox.innerHTML = `
-  <h3 class="font-bold text-emerald-700 mb-2">Payment Receipt</h3>
-  <p><b>Name:</b> ${formData.name}</p>
-  <p><b>Course:</b> ${formData.course}</p>
-  <p><b>Amount:</b> ₹100</p>
-  <p><b>Payment ID:</b> ${paymentId}</p>
-  <p><b>Order ID:</b> ${orderId}</p>
-  <p><b>Date:</b> ${now}</p>
-`;
+setAdmissionStatus("Admission confirmed and payment received successfully.", "success");
+
+const receiptBox = document.getElementById("receiptBox");
+if (receiptBox) {
+  receiptBox.classList.remove("hidden");
+  receiptBox.innerHTML = `
+    <h3 class="font-bold text-emerald-700 mb-2">Payment Receipt</h3>
+    <p><b>Name:</b> ${formData.name}</p>
+    <p><b>Course:</b> ${formData.course}</p>
+    <p><b>Amount:</b> ₹100</p>
+    <p><b>Payment ID:</b> ${paymentId}</p>
+    <p><b>Order ID:</b> ${orderId}</p>
+    <p><b>Date:</b> ${now}</p>
+  `;
+}
 
                     },
                     modal: {
